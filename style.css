@@ -1,0 +1,813 @@
+/* =====================
+   RESET & BASE - PROFESSIONELL
+====================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  --primary-color: #2563EB;
+  --secondary-color: #7C3AED;
+  --accent-color: #059669;
+  --light-bg: #F8FAFC;
+  --light-card: #FFFFFF;
+  --light-border: #E2E8F0;
+  --text-dark: #1E293B;
+  --text-muted: #64748B;
+  --shadow-light: 0 10px 25px rgba(0, 0, 0, 0.05);
+  --shadow-medium: 0 15px 35px rgba(0, 0, 0, 0.1);
+  --overlay-light: rgba(255, 255, 255, 0.85);
+  --passport-red: #C41E3A;
+  --passport-gold: #D4AF37;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--light-bg);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background: linear-gradient(135deg, #F1F5F9 0%, var(--light-bg) 100%);
+  color: var(--text-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* =====================
+   NAVIGATION - CLEAN
+====================== */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 25px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  z-index: 1000;
+  border-bottom: 1px solid var(--light-border);
+  box-shadow: var(--shadow-light);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nav-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--text-dark);
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 5px 0;
+  position: relative;
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* =====================
+   SECTIONS - MIT HINTERGRÜNDEN
+====================== */
+.section {
+  min-height: 100vh;
+  min-height: 100dvh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 100px 25px 60px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--overlay-light);
+  z-index: 1;
+}
+
+.section-content {
+  position: relative;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  z-index: 2;
+}
+
+.section-title {
+  font-size: 3rem;
+  margin-bottom: 25px;
+  font-weight: 700;
+  text-align: center;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-description {
+  font-size: 1.3rem;
+  color: var(--text-muted);
+  max-width: 800px;
+  margin: 0 auto 60px;
+  text-align: center;
+  line-height: 1.7;
+}
+
+/* =====================
+   HAUSTIER SECTION
+====================== */
+.pet-section {
+  background-image: url('https://images.unsplash.com/photo-1592194996308-7b43878e84a6?auto=format&fit=crop&w=1600&q=80');
+}
+
+.pet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.polaroid-card {
+  background: white;
+  padding: 25px 25px 50px;
+  border-radius: 12px;
+  transform: rotate(var(--rotation, -1.5deg));
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: var(--shadow-medium);
+  position: relative;
+  max-width: 420px;
+  margin: 0 auto;
+  border: 1px solid var(--light-border);
+}
+
+.polaroid-card:hover {
+  transform: rotate(0deg) scale(1.03);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.polaroid-card:nth-child(odd) {
+  --rotation: 1.5deg;
+}
+
+.polaroid-card:nth-child(even) {
+  --rotation: -1.5deg;
+}
+
+.polaroid-image {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+.polaroid-caption {
+  color: var(--text-dark);
+  text-align: center;
+  padding: 0 15px;
+}
+
+.polaroid-caption h3 {
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+  color: var(--primary-color);
+}
+
+.polaroid-caption p {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* =====================
+   AUTO SECTION
+====================== */
+.auto-section {
+  background-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1600&q=80');
+}
+
+.car-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 35px;
+  margin-top: 30px;
+}
+
+.car-card {
+  background: var(--light-card);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--light-border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: var(--shadow-light);
+}
+
+.car-card:hover {
+  transform: translateY(-12px);
+  box-shadow: var(--shadow-medium);
+  border-color: var(--primary-color);
+}
+
+.car-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.car-details {
+  padding: 30px;
+}
+
+.car-details h3 {
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+  color: var(--text-dark);
+}
+
+.car-details p {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+/* =====================
+   MUSIK SECTION - MIT HINTERGRUND
+====================== */
+.music-section {
+  background-image: url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1600&q=80');
+  position: relative;
+}
+
+.music-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.spotify-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.playlist-card {
+  background: white;
+  border-radius: 20px;
+  padding: 35px;
+  border: 1px solid var(--light-border);
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-light);
+}
+
+.playlist-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-medium);
+  border-color: #1ED760;
+}
+
+.playlist-card h3 {
+  color: #1ED760;
+  margin-bottom: 18px;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.playlist-card h3::before {
+  content: '♫';
+  font-size: 1.8rem;
+}
+
+.playlist-description {
+  margin-bottom: 25px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+.spotify-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: #1ED760;
+  color: white;
+  text-decoration: none;
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.spotify-link:hover {
+  background: #1FDF64;
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(30, 215, 96, 0.3);
+}
+
+.qr-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 20px;
+  padding: 35px;
+  border: 1px solid var(--light-border);
+  box-shadow: var(--shadow-light);
+}
+
+.qr-code {
+  width: 220px;
+  height: 220px;
+  background: linear-gradient(135deg, #1ED760, #2563EB);
+  padding: 20px;
+  border-radius: 16px;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.qr-note {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* =====================
+   TRAVEL SECTION - LÄNDER MIT HINTERGRÜNDEN
+====================== */
+.travel-section {
+  background: linear-gradient(135deg, #F1F5F9 0%, #E2E8F0 100%);
+  min-height: auto;
+  padding: 100px 25px;
+}
+
+.travel-section::before {
+  display: none;
+}
+
+.travel-sequence {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 40px;
+}
+
+.travel-item {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.country-card {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--light-border);
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin-bottom: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: var(--shadow-light);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Länder-Hintergründe */
+.country-card[data-country="oesterreich"] {
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+              url('https://images.unsplash.com/photo-1516550893923-42d28e5677af?auto=format&fit=crop&w=1600&q=80');
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.country-card[data-country="italien"] {
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+              url('https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?auto=format&fit=crop&w=1600&q=80');
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.country-card[data-country="kroatien"] {
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+              url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1600&q=80');
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.country-card[data-country="frankreich"] {
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+              url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1600&q=80');
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.country-card[data-country="usa"] {
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+              url('https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1600&q=80');
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.country-card[data-country="kanada"] {
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+              url('https://images.unsplash.com/photo-1503614472-8c93d56e92ce?auto=format&fit=crop&w=1600&q=80');
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.country-card[data-country="china"] {
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+              url('https://images.unsplash.com/photo-1517989565442-c2c0b57ebfca?auto=format&fit=crop&w=1600&q=80');
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.country-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-medium);
+  border-color: var(--accent-color);
+}
+
+.country-header {
+  padding: 60px 40px 40px;
+  position: relative;
+  background: none;
+}
+
+.country-card[data-country] .country-header h3,
+.country-card[data-country] .country-distance,
+.country-card[data-country] .country-description {
+  color: white;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.country-header h3 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: var(--text-dark);
+}
+
+.country-distance {
+  color: var(--accent-color);
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.country-distance::before {
+  content: '✈';
+  font-size: 1.6rem;
+}
+
+.country-description {
+  color: var(--text-muted);
+  line-height: 1.8;
+  font-size: 1.2rem;
+  max-width: 800px;
+}
+
+.country-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 40px;
+}
+
+.country-gallery img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid var(--light-border);
+  transition: transform 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.country-gallery img:hover {
+  transform: scale(1.08);
+}
+
+/* TRAVEL SPACER NUR MIT PASSPORT STAMP */
+.travel-spacer {
+  height: 100vh;
+  height: 100dvh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  background: linear-gradient(135deg, #F1F5F9 0%, #E2E8F0 100%);
+  overflow: hidden;
+}
+
+/* PASSPORT STAMP ANIMATION */
+.passport-stamp {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  z-index: 20;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.passport-stamp.visible {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.passport-stamp.appearing {
+  animation: stampAppear 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes stampAppear {
+  0% {
+    transform: translate(-50%, -50%) scale(0) rotate(-180deg);
+    opacity: 0;
+  }
+  60% {
+    transform: translate(-50%, -50%) scale(1.2) rotate(10deg);
+    opacity: 1;
+  }
+  80% {
+    transform: translate(-50%, -50%) scale(0.95) rotate(-5deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1) rotate(5deg);
+    opacity: 1;
+  }
+}
+
+.stamp-inner {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  border: 5px dashed var(--passport-red);
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.98);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  box-shadow: 
+    0 15px 40px rgba(0, 0, 0, 0.25),
+    inset 0 0 25px rgba(196, 30, 58, 0.15);
+  transform: rotate(5deg);
+}
+
+.stamp-country {
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  font-size: 1.6rem;
+  color: var(--passport-red);
+  text-align: center;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1.2;
+}
+
+.stamp-symbol {
+  font-size: 3rem;
+  margin: 15px 0;
+  opacity: 0.9;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+.stamp-date {
+  font-family: 'Courier New', monospace;
+  font-size: 1rem;
+  color: #666;
+  text-align: center;
+  margin-top: 10px;
+  border-top: 2px dashed #eee;
+  padding-top: 10px;
+  width: 100%;
+  font-weight: bold;
+}
+
+.spacer-content {
+  text-align: center;
+  z-index: 2;
+  padding: 20px;
+  position: relative;
+  margin-top: 250px;
+}
+
+.spacer-text {
+  color: var(--text-muted);
+  font-size: 1.4rem;
+  max-width: 350px;
+  line-height: 1.6;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease 0.8s;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.spacer-text.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Arrival Indicator */
+.arrival-notice {
+  position: fixed;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  padding: 25px 35px;
+  border-radius: 20px;
+  border: 2px solid var(--accent-color);
+  z-index: 1000;
+  opacity: 0;
+  transition: all 0.4s ease;
+  text-align: center;
+  min-width: 320px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.arrival-notice.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.arrival-notice h4 {
+  color: var(--accent-color);
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+}
+
+.arrival-notice p {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+}
+
+/* =====================
+   KONTAKT SECTION
+====================== */
+.contact-section {
+  background-image: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80');
+}
+
+.contact-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 24px;
+  padding: 60px;
+  border: 1px solid var(--light-border);
+  text-align: center;
+  box-shadow: var(--shadow-medium);
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 50px;
+  flex-wrap: wrap;
+}
+
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  color: white;
+  text-decoration: none;
+  padding: 18px 35px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.contact-link:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(37, 99, 235, 0.2);
+}
+
+/* =====================
+   UTILITIES
+====================== */
+.scroll-hint {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1rem;
+  color: var(--text-muted);
+  animation: bounce 2s infinite;
+  text-align: center;
+  z-index: 2;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+/* Home Section Background */
+.home-section {
+  background-image: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600');
+}
+
+/* Image styling */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.image-loading {
+  background: linear-gradient(135deg, #F1F5F9 0%, #E2E8F0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  border-radius: 12px;
+}
