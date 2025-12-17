@@ -1,101 +1,436 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Über mich – Deine Website</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f5f5f7;
-            color: #333;
-        }
-        header {
-            background: #1f1f1f;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        main {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-        .profile {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .profile img {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 20px;
-        }
-        h1 {
-            margin-bottom: 10px;
-        }
-        p {
-            line-height: 1.6;
-        }
-        footer {
-            text-align: center;
-            margin-top: 60px;
-            padding: 20px;
-            font-size: 0.9rem;
-            color: #777;
-        }
-        a {
-            color: #0073e6;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+  <title>Niklas – Portfolio</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
 </head>
-
 <body>
 
-<header>
-    <h1>Willkommen auf meiner Website</h1>
-</header>
+  <!-- Navigation -->
+  <header>
+    <div class="nav-container">
+      <a href="#home" class="nav-brand">Niklas</a>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#haustier">Haustier</a>
+        <a href="#auto">Auto</a>
+        <a href="#musik">Musik</a>
+        <a href="#reisen">Reisen</a>
+        <a href="#kontakt">Kontakt</a>
+      </div>
+      <button class="mobile-menu-toggle">☰</button>
+    </div>
+  </header>
 
-<main>
-    <section class="profile">
-        <!-- Du kannst später einfach ein Bild hinzufügen -->
-        <!-- <img src="images/profil.jpg" alt="Profilbild"> -->
-        <h1>Hallo, ich bin Niklas</h1>
-        <p>
-            Dies ist meine persönliche Webseite. Hier stelle ich mich vor, zeige meine Projekte
-            und gebe einen Einblick in meine Arbeit. Die Seite wird auf GitHub verwaltet und gehostet.
-        </p>
-    </section>
+  <!-- Arrival Notice -->
+  <div class="arrival-notice" id="arrivalNotice">
+    <h4 id="arrivalTitle">Ziel erreicht</h4>
+    <p id="arrivalDistance">Von Deutschland: 0 km</p>
+  </div>
 
-    <section>
-        <h2>Über mich</h2>
-        <p>
-            Ich arbeite als Consultant mit Fokus auf Automatisierungen, Power Platform,
-            Business Central und datengetriebenen Lösungen. In meiner Freizeit interessiere ich mich für
-            Reisen, Technologie, Psychologie und gutes Essen.
-        </p>
-    </section>
+  <!-- Home -->
+  <section id="home" class="section home-section">
+    <div class="section-content">
+      <h1 class="section-title">Willkommen</h1>
+      <p class="section-description">Persönliche Einblicke in meine Interessen und Erlebnisse</p>
+    </div>
+    <div class="scroll-hint">Scrollen Sie nach unten</div>
+  </section>
 
-    <section>
-        <h2>Kontakt</h2>
-        <p>
-            GitHub: <a href="#">(Link einfügen)</a><br/>
-            LinkedIn: <a href="#">(Link einfügen)</a><br/>
-            E-Mail: <a href="#">(einfügen)</a>
-        </p>
-    </section>
-</main>
+  <!-- Haustier -->
+  <section id="haustier" class="section pet-section">
+    <div class="section-content">
+      <h2 class="section-title">Mein Haustier</h2>
+      <p class="section-description">Meine tierischen Begleiter in Polaroid-Erinnerungen</p>
+      
+      <div class="pet-grid">
+        <div class="polaroid-card">
+          <img src="https://images.unsplash.com/photo-1514888286974-6d03bdeacba8?auto=format&fit=crop&w=800&q=80" alt="Katze Luna" class="polaroid-image">
+          <div class="polaroid-caption">
+            <h3>Luna</h3>
+            <p>Meine Britisch Kurzhaar Katze - neugierig und verspielt, begleitet mich seit 3 Jahren durch den Alltag.</p>
+          </div>
+        </div>
+        
+        <div class="polaroid-card">
+          <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80" alt="Hund Max" class="polaroid-image">
+          <div class="polaroid-caption">
+            <h3>Max</h3>
+            <p>Unser Familienhund - treuer Begleiter für lange Spaziergänge und Abenteuer im Wald.</p>
+          </div>
+        </div>
+        
+        <div class="polaroid-card">
+          <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=800&q=80" alt="Spielzeit mit Haustieren" class="polaroid-image">
+          <div class="polaroid-caption">
+            <h3>Spielzeit</h3>
+            <p>Die schönsten Momente sind die gemeinsamen Spielstunden mit meinen tierischen Freunden.</p>
+          </div>
+        </div>
+        
+        <div class="polaroid-card">
+          <img src="https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?auto=format&fit=crop&w=800&q=80" alt="Entspannung mit Haustieren" class="polaroid-image">
+          <div class="polaroid-caption">
+            <h3>Entspannung</h3>
+            <p>Ruhige Stunden zusammen - wenn die Tiere entspannen und ich Zeit zum Lesen habe.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<footer>
-    © 2025 Niklas Barber
-</footer>
+  <!-- Auto -->
+  <section id="auto" class="section auto-section">
+    <div class="section-content">
+      <h2 class="section-title">Automobil</h2>
+      <p class="section-description">Meine Leidenschaft für Fahrzeuge, Technik und Reisen</p>
+      
+      <div class="car-grid">
+        <div class="car-card">
+          <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=800&q=80" alt="Auto Alltagsbegleiter" class="car-image">
+          <div class="car-details">
+            <h3>Täglicher Begleiter</h3>
+            <p>Mein Alltagsauto - zuverlässig und komfortabel für tägliche Fahrten zur Arbeit und zurück.</p>
+          </div>
+        </div>
+        
+        <div class="car-card">
+          <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=800&q=80" alt="Wochenendtouren Auto" class="car-image">
+          <div class="car-details">
+            <h3>Wochenendtouren</h3>
+            <p>Für ausgedehnte Fahrten und Entdeckungstouren am Wochenende durch die umliegende Natur.</p>
+          </div>
+        </div>
+        
+        <div class="car-card">
+          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80" alt="Auto Technik Details" class="car-image">
+          <div class="car-details">
+            <h3>Technik & Details</h3>
+            <p>Faszination für innovative Technologien und durchdachtes Design im Automobilbau.</p>
+          </div>
+        </div>
+        
+        <div class="car-card">
+          <img src="https://images.unsplash.com/photo-1555212697-194d092e3b8f?auto=format&fit=crop&w=800&q=80" alt="Nachtfahrten Auto" class="car-image">
+          <div class="car-details">
+            <h3>Nachtfahrten</h3>
+            <p>Die besondere Atmosphäre nächtlicher Fahrten auf leeren Straßen mit guter Musik.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- Musik -->
+  <section id="musik" class="section music-section">
+    <div class="section-content">
+      <h2 class="section-title">Musik</h2>
+      <p class="section-description">Soundtracks meines Lebens - hören Sie meine Playlists auf Spotify</p>
+      
+      <div class="music-container">
+        <div class="spotify-section">
+          <div class="playlist-card">
+            <h3>Entspannung & Fokus</h3>
+            <p class="playlist-description">
+              Ruhige Töne für konzentriertes Arbeiten und entspannte Abende. 
+              Eine sorgfältig kuratierte Playlist mit Lo-Fi Beats und Ambient Sounds.
+            </p>
+            <a href="https://open.spotify.com/playlist/37i9dQZF1DX4WYpdgoIcn6" target="_blank" class="spotify-link">
+              <span style="font-size: 1.2rem;">▶</span> Auf Spotify anhören
+            </a>
+          </div>
+          
+          <div class="playlist-card">
+            <h3>Energie & Sport</h3>
+            <p class="playlist-description">
+              Power-Tracks für Workouts und sportliche Aktivitäten. 
+              Motivierende Beats die Energie geben und die Stimmung heben.
+            </p>
+            <a href="https://open.spotify.com/playlist/37i9dQZF1DX76Wlfdnj7AP" target="_blank" class="spotify-link">
+              <span style="font-size: 1.2rem;">▶</span> Auf Spotify anhören
+            </a>
+          </div>
+          
+          <div class="playlist-card">
+            <h3>Reisen & Straße</h3>
+            <p class="playlist-description">
+              Perfekte Begleitung für lange Fahrten und Reisen. 
+              Ein Mix aus Indie, Alternative und Roadtrip-Klassikern.
+            </p>
+            <a href="https://open.spotify.com/playlist/37i9dQZF1DX9wC1KY45plY" target="_blank" class="spotify-link">
+              <span style="font-size: 1.2rem;">▶</span> Auf Spotify anhören
+            </a>
+          </div>
+          
+          <div class="qr-section">
+            <div class="qr-code">
+              <div style="text-align: center;">
+                <div style="font-size: 3rem; margin-bottom: 10px;">🎵</div>
+                <div>Spotify QR Code</div>
+              </div>
+            </div>
+            <p class="qr-note">
+              Scannen Sie den QR-Code mit Ihrem Smartphone,<br>
+              um direkt zu meinen Spotify-Playlists zu gelangen.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reisen -->
+  <section id="reisen" class="section travel-section">
+    <div class="section-content">
+      <h2 class="section-title">Reisen</h2>
+      <p class="section-description">Scrollen Sie durch die Länder - Pass-Stempel erscheinen zwischen den Zielen</p>
+      
+      <div class="travel-sequence">
+        <!-- Österreich -->
+        <div class="travel-item">
+          <div class="country-card" data-country="oesterreich" data-distance="550">
+            <div class="country-header">
+              <h3>Österreich</h3>
+              <div class="country-distance">550 km von Deutschland</div>
+              <p class="country-description">Alpenpanorama, kaiserliche Städte und gemütliche Gasthäuser im Herzen Europas. Wandern in den Alpen und Kulturgenuss in Wien.</p>
+            </div>
+            <div class="country-gallery">
+              <img src="https://images.unsplash.com/photo-1516550893923-42d28e5677af?auto=format&fit=crop&w=800&q=80" alt="Alpen Österreich">
+              <img src="https://images.unsplash.com/photo-1528728329032-2972f65dfb3f?auto=format&fit=crop&w=800&q=80" alt="Wien Stadt">
+              <img src="https://images.unsplash.com/photo-1580651315530-69c8e8c5c8c7?auto=format&fit=crop&w=800&q=80" alt="Bergsee Österreich">
+              <img src="https://images.unsplash.com/photo-1518556793250-1893471c6cfe?auto=format&fit=crop&w=800&q=80" alt="Österreich Alpen">
+              <img src="https://images.unsplash.com/photo-1520236060906-2c34a36971b1?auto=format&fit=crop&w=800&q=80" alt="Tirol Österreich">
+              <img src="https://images.unsplash.com/photo-1513326738677-b964603b136d?auto=format&fit=crop&w=800&q=80" alt="Österreich Dorf">
+            </div>
+          </div>
+        </div>
+
+        <!-- Spacer 1 nur mit Pass-Stempel -->
+        <div class="travel-spacer">
+          <div class="passport-stamp" id="stamp1">
+            <div class="stamp-inner">
+              <div class="stamp-country">ÖSTERREICH</div>
+              <div class="stamp-symbol">🏔️</div>
+              <div class="stamp-date">MAI 2023</div>
+            </div>
+          </div>
+          <div class="spacer-content">
+            <p class="spacer-text" id="spacerText1">Reise nach Italien<br>950 km Entfernung</p>
+          </div>
+        </div>
+
+        <!-- Italien -->
+        <div class="travel-item">
+          <div class="country-card" data-country="italien" data-distance="950">
+            <div class="country-header">
+              <h3>Italien</h3>
+              <div class="country-distance">950 km von Deutschland</div>
+              <p class="country-description">Kunst, Kultur und Küche – von Venedigs Kanälen bis zu Roms antiken Schätzen. Unvergessliche kulinarische Erlebnisse und historische Stätten.</p>
+            </div>
+            <div class="country-gallery">
+              <img src="https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?auto=format&fit=crop&w=800&q=80" alt="Venedig Kanäle">
+              <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=800&q=80" alt="Rom Kolosseum">
+              <img src="https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?auto=format&fit=crop&w=800&q=80" alt="Toskana Landschaft">
+              <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=800&q=80" alt="Italien Küste">
+              <img src="https://images.unsplash.com/photo-1515859005217-8a1f08870f59?auto=format&fit=crop&w=800&q=80" alt="Italien Essen">
+              <img src="https://images.unsplash.com/photo-1534445867742-43195f401b6c?auto=format&fit=crop&w=800&q=80" alt="Italien Architektur">
+            </div>
+          </div>
+        </div>
+
+        <!-- Spacer 2 nur mit Pass-Stempel -->
+        <div class="travel-spacer">
+          <div class="passport-stamp" id="stamp2">
+            <div class="stamp-inner">
+              <div class="stamp-country">ITALIEN</div>
+              <div class="stamp-symbol">🍕</div>
+              <div class="stamp-date">AUGUST 2023</div>
+            </div>
+          </div>
+          <div class="spacer-content">
+            <p class="spacer-text" id="spacerText2">Reise nach Kroatien<br>800 km Entfernung</p>
+          </div>
+        </div>
+
+        <!-- Kroatien -->
+        <div class="travel-item">
+          <div class="country-card" data-country="kroatien" data-distance="800">
+            <div class="country-header">
+              <h3>Kroatien</h3>
+              <div class="country-distance">800 km von Deutschland</div>
+              <p class="country-description">Kristallklares Wasser, historische Altstädte und über 1.000 Inseln an der Adria. Perfekte Strände und kulturelle Schätze.</p>
+            </div>
+            <div class="country-gallery">
+              <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80" alt="Dubrovnik Altstadt">
+              <img src="https://images.unsplash.com/photo-1520662169442-46b4c61c02c3?auto=format&fit=crop&w=800&q=80" alt="Plitvicer Seen">
+              <img src="https://images.unsplash.com/photo-1560717781-bcac22c4470e?auto=format&fit=crop&w=800&q=80" alt="Adria Küste">
+              <img src="https://images.unsplash.com/photo-1523908517557-b7f78dbcc13a?auto=format&fit=crop&w=800&q=80" alt="Kroatien Strand">
+              <img src="https://images.unsplash.com/photo-1523908517557-b7f78dbcc13a?auto=format&fit=crop&w=800&q=80" alt="Kroatien Inseln">
+              <img src="https://images.unsplash.com/photo-1523908517557-b7f78dbcc13a?auto=format&fit=crop&w=800&q=80" alt="Kroatien Kultur">
+            </div>
+          </div>
+        </div>
+
+        <!-- Spacer 3 nur mit Pass-Stempel -->
+        <div class="travel-spacer">
+          <div class="passport-stamp" id="stamp3">
+            <div class="stamp-inner">
+              <div class="stamp-country">KROATIEN</div>
+              <div class="stamp-symbol">🏖️</div>
+              <div class="stamp-date">JULI 2022</div>
+            </div>
+          </div>
+          <div class="spacer-content">
+            <p class="spacer-text" id="spacerText3">Reise nach Frankreich<br>600 km Entfernung</p>
+          </div>
+        </div>
+
+        <!-- Frankreich -->
+        <div class="travel-item">
+          <div class="country-card" data-country="frankreich" data-distance="600">
+            <div class="country-header">
+              <h3>Frankreich</h3>
+              <div class="country-distance">600 km von Deutschland</div>
+              <p class="country-description">Von Pariser Charme über provenzalische Landschaften bis zu alpinen Gipfeln. Kulinarische Höhepunkte und atemberaubende Architektur.</p>
+            </div>
+            <div class="country-gallery">
+              <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80" alt="Paris Eiffelturm">
+              <img src="https://images.unsplash.com/photo-1503917988258-f87a78e3c995?auto=format&fit=crop&w=800&q=80" alt="Provence Lavendelfelder">
+              <img src="https://images.unsplash.com/photo-1522856887916-59700c9765ff?auto=format&fit=crop&w=800&q=80" alt="Südfrankreich Küste">
+              <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80" alt="Frankreich Kultur">
+              <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80" alt="Frankreich Wein">
+              <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80" alt="Frankreich Berge">
+            </div>
+          </div>
+        </div>
+
+        <!-- Spacer 4 nur mit Pass-Stempel -->
+        <div class="travel-spacer">
+          <div class="passport-stamp" id="stamp4">
+            <div class="stamp-inner">
+              <div class="stamp-country">FRANKREICH</div>
+              <div class="stamp-symbol">🗼</div>
+              <div class="stamp-date">APRIL 2023</div>
+            </div>
+          </div>
+          <div class="spacer-content">
+            <p class="spacer-text" id="spacerText4">Reise in die USA<br>7.500 km Entfernung</p>
+          </div>
+        </div>
+
+        <!-- USA -->
+        <div class="travel-item">
+          <div class="country-card" data-country="usa" data-distance="7500">
+            <div class="country-header">
+              <h3>USA</h3>
+              <div class="country-distance">7.500 km von Deutschland</div>
+              <p class="country-description">Von den Metropolen der Ostküste bis zu den Nationalparks des Westens - Land der unbegrenzten Möglichkeiten. Roadtrips durch Kalifornien und urbane Abenteuer in New York.</p>
+            </div>
+            <div class="country-gallery">
+              <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=800&q=80" alt="New York Skyline">
+              <img src="https://images.unsplash.com/photo-1506970845872-504d6b2d49e8?auto=format&fit=crop&w=800&q=80" alt="Grand Canyon">
+              <img src="https://images.unsplash.com/photo-1501595091296-3aa970afb3ff?auto=format&fit=crop&w=800&q=80" alt="Kalifornien Küste">
+              <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=800&q=80" alt="USA Nationalparks">
+              <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=800&q=80" alt="USA Städte">
+              <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=800&q=80" alt="USA Natur">
+            </div>
+          </div>
+        </div>
+
+        <!-- Spacer 5 nur mit Pass-Stempel -->
+        <div class="travel-spacer">
+          <div class="passport-stamp" id="stamp5">
+            <div class="stamp-inner">
+              <div class="stamp-country">USA</div>
+              <div class="stamp-symbol">🗽</div>
+              <div class="stamp-date">SEPTEMBER 2024</div>
+            </div>
+          </div>
+          <div class="spacer-content">
+            <p class="spacer-text" id="spacerText5">Reise nach Kanada<br>6.500 km Entfernung</p>
+          </div>
+        </div>
+
+        <!-- Kanada -->
+        <div class="travel-item">
+          <div class="country-card" data-country="kanada" data-distance="6500">
+            <div class="country-header">
+              <h3>Kanada</h3>
+              <div class="country-distance">6.500 km von Deutschland</div>
+              <p class="country-description">Weite Landschaften, unberührte Natur und die Freundlichkeit der Menschen in den Nationalparks. Wandern in den Rocky Mountains und Großstadtflair in Toronto.</p>
+            </div>
+            <div class="country-gallery">
+              <img src="https://images.unsplash.com/photo-1503614472-8c93d56e92ce?auto=format&fit=crop&w=800&q=80" alt="Rocky Mountains Kanada">
+              <img src="https://images.unsplash.com/photo-1519677100203-9ffc3d4f08a0?auto=format&fit=crop&w=800&q=80" alt="Toronto Skyline">
+              <img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?auto=format&fit=crop&w=800&q=80" alt="Niagarafälle">
+              <img src="https://images.unsplash.com/photo-1503614472-8c93d56e92ce?auto=format&fit=crop&w=800&q=80" alt="Kanada Seen">
+              <img src="https://images.unsplash.com/photo-1503614472-8c93d56e92ce?auto=format&fit=crop&w=800&q=80" alt="Kanada Wildnis">
+              <img src="https://images.unsplash.com/photo-1503614472-8c93d56e92ce?auto=format&fit=crop&w=800&q=80" alt="Kanada Städte">
+            </div>
+          </div>
+        </div>
+
+        <!-- Spacer 6 nur mit Pass-Stempel -->
+        <div class="travel-spacer">
+          <div class="passport-stamp" id="stamp6">
+            <div class="stamp-inner">
+              <div class="stamp-country">KANADA</div>
+              <div class="stamp-symbol">🍁</div>
+              <div class="stamp-date">OKTOBER 2024</div>
+            </div>
+          </div>
+          <div class="spacer-content">
+            <p class="spacer-text" id="spacerText6">Reise nach China<br>7.800 km Entfernung</p>
+          </div>
+        </div>
+
+        <!-- China -->
+        <div class="travel-item">
+          <div class="country-card" data-country="china" data-distance="7800">
+            <div class="country-header">
+              <h3>China</h3>
+              <div class="country-distance">7.800 km von Deutschland</div>
+              <p class="country-description">Alte Traditionen treffen auf moderne Megastädte – eine Reise zwischen Vergangenheit und Zukunft. Die Große Mauer, Pandas und futuristische Skyline von Shanghai.</p>
+            </div>
+            <div class="country-gallery">
+              <img src="https://images.unsplash.com/photo-1517989565442-c2c0b57ebfca?auto=format&fit=crop&w=800&q=80" alt="Chinesische Mauer">
+              <img src="https://images.unsplash.com/photo-1547981609-4b6bf67b7d46?auto=format&fit=crop&w=800&q=80" alt="Shanghai Skyline">
+              <img src="https://images.unsplash.com/photo-1535139262971-c51845709a48?auto=format&fit=crop&w=800&q=80" alt="Pandas China">
+              <img src="https://images.unsplash.com/photo-1517989565442-c2c0b57ebfca?auto=format&fit=crop&w=800&q=80" alt="China Tradition">
+              <img src="https://images.unsplash.com/photo-1517989565442-c2c0b57ebfca?auto=format&fit=crop&w=800&q=80" alt="China Moderne">
+              <img src="https://images.unsplash.com/photo-1517989565442-c2c0b57ebfca?auto=format&fit=crop&w=800&q=80" alt="China Natur">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kontakt -->
+  <section id="kontakt" class="section contact-section">
+    <div class="section-content">
+      <h2 class="section-title">Kontakt</h2>
+      <p class="section-description">Bei Fragen oder Interesse können Sie mich gerne kontaktieren</p>
+      
+      <div class="contact-container">
+        <div class="contact-links">
+          <a href="mailto:beispiel@email.com" class="contact-link">
+            📧 E-Mail schreiben
+          </a>
+          <a href="#" class="contact-link">
+            💼 LinkedIn Profil
+          </a>
+          <a href="#" class="contact-link">
+            💻 GitHub Repositorys
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
