@@ -201,3 +201,94 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 1000);
   }
 });
+// =====================
+// PASSPORT ANIMATION LOGIC
+// =====================
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Passport Animation für jeden Spacer
+  const travelSpacers = document.querySelectorAll('.travel-spacer');
+  
+  // Country symbols mapping
+  const countrySymbols = {
+    'madeira': '🌺',
+    'italien': '🍕',
+    'kroatien': '🏖️',
+    'frankreich': '🗼',
+    'usa': '🗽',
+    'kanada': '🍁',
+    'china': '🐉'
+  };
+  
+  // Country names mapping
+  const countryNames = {
+    'madeira': 'MADEIRA',
+    'italien': 'ITALIEN',
+    'kroatien': 'KROATIEN',
+    'frankreich': 'FRANKREICH',
+    'usa': 'USA',
+    'kanada': 'KANADA',
+    'china': 'CHINA'
+  };
+  
+  // Initialize passport for each spacer
+  travelSpacers.forEach(spacer => {
+    const country = spacer.dataset.country;
+    const cover = spacer.querySelector('.passport-cover');
+    const stamp = spacer.querySelector('.passport-stamp');
+    const stampCountry = stamp.querySelector('.stamp-country');
+    const stampSymbol = stamp.querySelector('.stamp-symbol');
+    
+    // Set country-specific content
+    if (country && countrySymbols[country]) {
+      stampCountry.textContent = countryNames[country];
+      stampSymbol.textContent = countrySymbols[country];
+    }
+    
+    // Add click event to cover
+    if (cover) {
+      cover.addEventListener('click', function() {
+        this.classList.toggle('open');
+      });
+    }
+  });
+  
+  // Observer für Passport-Animation beim Scrollen
+  const passportObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio > 0.7) {
+        const spacer = entry.target;
+        const cover = spacer.querySelector('.passport-cover');
+        
+        if (cover && !cover.classList.contains('open')) {
+          // Automatisch öffnen beim Scrollen
+          setTimeout(() => {
+            cover.classList.add('open');
+          }, 500);
+        }
+      }
+    });
+  }, {
+    threshold: [0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+  });
+  
+  // Observe all travel spacers
+  travelSpacers.forEach(spacer => {
+    passportObserver.observe(spacer);
+  });
+  
+  // Optional: Schließen-Button für alle Passports
+  const closeAllPassports = () => {
+    document.querySelectorAll('.passport-cover.open').forEach(cover => {
+      cover.classList.remove('open');
+    });
+  };
+  
+  // Schließen bei Klick außerhalb
+  document.addEventListener('click', function(event) {
+    if (!event.target.closest('.passport-container') && 
+        !event.target.closest('.passport-cover')) {
+      closeAllPassports();
+    }
+  });
+});

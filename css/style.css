@@ -574,7 +574,7 @@ header {
   top: 50%;
   transform: translate(-50%, -50%) scale(0);
   z-index: 20;
-  width: 200px;
+  width: 375px;
   height: 200px;
   display: flex;
   align-items: center;
@@ -610,8 +610,8 @@ header {
 
 .stamp-inner {
   position: relative;
-  width: 180px;
-  height: 180px;
+  width: 375px;
+  height: 375px;
   border: 5px dashed var(--passport-red);
   border-radius: 25px;
   background: rgba(255, 255, 255, 0.98);
@@ -810,4 +810,394 @@ img {
   justify-content: center;
   color: var(--text-muted);
   border-radius: 12px;
+}
+
+/* =====================
+   PASSPORT ANIMATION - OPTIMIERT
+   (AM ENDE DER DATEI HINZUFÜGEN)
+====================== */
+
+.passport-container {
+  position: relative;
+  width: 900px;
+  height: 400px;
+  margin: 0 auto 60px;
+}
+
+/* Pass Cover */
+.passport-cover {
+  position: absolute;
+  left: 225px;
+  width: 300px;
+  height: 400px;
+  background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
+  border-radius: 20px 10px 10px 20px;
+  box-shadow: 15px 0 30px rgba(0,0,0,0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-right: 20px solid #ffd600;
+  cursor: pointer;
+  transition: 
+    transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.3s ease 0.7s;
+  transform-origin: left center;
+  z-index: 30;
+  backface-visibility: hidden;
+}
+
+.passport-cover.open {
+  transform: rotateY(-135deg);
+  opacity: 0;
+}
+
+.passport-cover:not(.open) {
+  transition: 
+    transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.3s ease;
+}
+
+.cover-title {
+  color: #ffd700;
+  font-family: 'Times New Roman', serif;
+  font-size: 2.8rem;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  text-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+
+.cover-subtitle {
+  color: rgba(255,255,255,0.9);
+  font-size: 1.2rem;
+  background: rgba(0, 30, 80, 0.4);
+  padding: 10px 25px;
+  border-radius: 20px;
+}
+
+/* Innenseite LINKS */
+.passport-inside-left {
+  position: absolute;
+  left: 225px;
+  width: 300px;
+  height: 400px;
+  background: linear-gradient(to bottom, #fff9e6, #f5e8c8);
+  border-radius: 20px 0 0 20px;
+  box-shadow: 
+    5px 0 15px rgba(0,0,0,0.2) inset,
+    0 5px 20px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 30px;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: 
+    opacity 0.5s ease 0.5s,
+    transform 0.6s ease 0.5s;
+  z-index: 20;
+  overflow: hidden;
+}
+
+.passport-cover.open ~ .passport-inside-left {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.passport-cover:not(.open) ~ .passport-inside-left {
+  transition: 
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* Innenseite RECHTS */
+.passport-inside-right {
+  position: absolute;
+  left: 525px;
+  width: 300px;
+  height: 400px;
+  background: linear-gradient(to bottom, #f5e8c8, #fff9e6);
+  border-radius: 0 20px 20px 0;
+  box-shadow: 
+    -5px 0 15px rgba(0,0,0,0.2) inset,
+    0 5px 20px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  opacity: 0;
+  transform: translateX(20px);
+  transition: 
+    opacity 0.5s ease 0.7s,
+    transform 0.6s ease 0.7s;
+  z-index: 10;
+}
+
+.passport-cover.open ~ .passport-inside-right {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.passport-cover:not(.open) ~ .passport-inside-right {
+  transition: 
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* Pass-Infos Seite */
+.passport-info-page {
+  width: 100%;
+  height: 100%;
+  background: 
+    repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 28px,
+      rgba(13, 71, 161, 0.08) 28px,
+      rgba(13, 71, 161, 0.08) 29px
+    );
+  position: relative;
+  padding: 25px;
+  font-family: 'Courier New', monospace;
+}
+
+.passport-number {
+  position: absolute;
+  top: 15px;
+  left: 25px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #0d47a1;
+  letter-spacing: 2px;
+}
+
+.passport-name {
+  position: absolute;
+  top: 45px;
+  left: 25px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.passport-photo {
+  position: absolute;
+  top: 100px;
+  left: 40px;
+  width: 90px;
+  height: 110px;
+  background: #e8e2d5;
+  border: 2px solid #0d47a1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-size: 0.8rem;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.passport-details {
+  position: absolute;
+  top: 100px;
+  left: 150px;
+  color: #333;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.detail-line {
+  margin-bottom: 6px;
+}
+
+.detail-label {
+  font-weight: bold;
+  color: #0d47a1;
+  display: inline-block;
+  width: 90px;
+}
+
+/* Stempelbereich */
+.stamp-page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed rgba(13, 71, 161, 0.3);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.7);
+  font-family: 'Courier New', monospace;
+}
+
+/* Stempel */
+.passport-stamp {
+  position: absolute;
+  left: 675px;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  z-index: 40;
+  opacity: 0;
+  transition: 
+    opacity 0.6s ease 1.5s,
+    transform 0.6s ease 1.5s;
+}
+
+.passport-cover.open ~ .passport-inside-right ~ .passport-stamp {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.passport-cover:not(.open) ~ .passport-inside-right ~ .passport-stamp {
+  transition: 
+    opacity 0.1s ease,
+    transform 0.1s ease;
+}
+
+/* DEIN ORIGINALER STEMPEL */
+.stamp-inner {
+  position: relative;
+  width: 180px;
+  height: 375px;
+  border: 5px dashed #c41e3a;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.98);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  box-shadow: 
+    0 15px 40px rgba(0, 0, 0, 0.25),
+    inset 0 0 25px rgba(196, 30, 58, 0.15);
+  transform: rotate(5deg);
+  animation: wackeln 0.8s ease-in-out 1.7s 3;
+}
+
+@keyframes wackeln {
+  0%, 100% { transform: rotate(5deg) translateX(0); }
+  25% { transform: rotate(7deg) translateX(3px); }
+  50% { transform: rotate(3deg) translateX(-3px); }
+  75% { transform: rotate(6deg) translateX(2px); }
+}
+
+.stamp-country {
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  font-size: 1.6rem;
+  color: #c41e3a;
+  text-align: center;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1.2;
+}
+
+.stamp-symbol {
+  font-size: 3rem;
+  margin: 15px 0;
+  opacity: 0.9;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+.stamp-date {
+  font-family: 'Courier New', monospace;
+  font-size: 1rem;
+  color: #666;
+  text-align: center;
+  margin-top: 10px;
+  border-top: 2px dashed #eee;
+  padding-top: 10px;
+  width: 100%;
+  font-weight: bold;
+}
+
+/* Bindefalz */
+.page-spine {
+  position: absolute;
+  left: 525px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 350px;
+  width: 5px;
+  background: linear-gradient(to bottom, #8b7355, #6b5a45);
+  z-index: 25;
+  box-shadow: 
+    -2px 0 5px rgba(0,0,0,0.3),
+    2px 0 5px rgba(0,0,0,0.3);
+  opacity: 0;
+  transition: opacity 0.5s ease 0.9s;
+}
+
+.passport-cover.open ~ .page-spine {
+  opacity: 1;
+}
+
+.passport-cover:not(.open) ~ .page-spine {
+  transition: opacity 0.2s ease;
+}
+
+/* Responsive für Passport */
+@media (max-width: 1000px) {
+  .passport-container {
+    width: 600px;
+    height: 300px;
+    transform: scale(0.8);
+    transform-origin: center;
+  }
+  
+  .passport-cover,
+  .passport-inside-left,
+  .passport-inside-right {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .passport-cover,
+  .passport-inside-left {
+    left: 150px;
+  }
+  
+  .passport-inside-right {
+    left: 450px;
+  }
+  
+  .passport-stamp {
+    left: 600px;
+  }
+  
+  .page-spine {
+    left: 450px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 650px) {
+  .passport-container {
+    width: 300px;
+    height: 400px;
+    transform: scale(0.7);
+  }
+  
+  .passport-cover,
+  .passport-inside-left,
+  .passport-inside-right {
+    width: 300px;
+    height: 200px;
+  }
+  
+  .passport-inside-right {
+    display: none; /* Auf sehr kleinen Bildschirmen verstecken */
+  }
+  
+  .passport-stamp {
+    left: 150px;
+    top: 250px;
+  }
 }

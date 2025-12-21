@@ -1,435 +1,833 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
-  <title>Niklas – Portfolio</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/responsive.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+    <title>Niklas – Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
+
 <body>
 
-  <!-- Navigation hahahahahahaah-->
-  <header>
-    <div class="nav-container">
-      <a href="#home" class="nav-brand">Niklas</a>
-      <div class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#haustier">Haustier</a>
-        <a href="#auto">Auto</a>
-        <a href="#musik">Musik</a>
-        <a href="#reisen">Reisen</a>
-        <a href="#kontakt">Kontakt</a>
-      </div>
-      <button class="mobile-menu-toggle">☰</button>
+    <!-- Navigation hahahahahahaah-->
+    <header>
+        <div class="nav-container">
+            <a href="#home" class="nav-brand">Niklas</a>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#haustier">Haustier</a>
+                <a href="#auto">Auto</a>
+                <a href="#musik">Musik</a>
+                <a href="#reisen">Reisen</a>
+                <a href="#kontakt">Kontakt</a>
+            </div>
+            <button class="mobile-menu-toggle">☰</button>
+        </div>
+    </header>
+
+    <!-- Arrival Notice -->
+    <div class="arrival-notice" id="arrivalNotice">
+        <h4 id="arrivalTitle">Ziel erreicht</h4>
+        <p id="arrivalDistance">Von Deutschland: 0 km</p>
     </div>
-  </header>
 
-  <!-- Arrival Notice -->
-  <div class="arrival-notice" id="arrivalNotice">
-    <h4 id="arrivalTitle">Ziel erreicht</h4>
-    <p id="arrivalDistance">Von Deutschland: 0 km</p>
-  </div>
-
-  <!-- Home -->
-  <section id="home" class="section home-section">
-    <div class="section-content">
-      <h1 class="section-title">Willkommen</h1>
-      <p class="section-description">Persönliche Einblicke in meine Interessen und Erlebnisse</p>
-    </div>
-    
-    <div class="scroll-hint">Scrollen Sie nach unten</div>
-  </section>
-
-  <!-- Haustier -->
-  <section id="haustier" class="section pet-section">
-    <div class="section-content">
-      <h2 class="section-title">Mein Haustier</h2>
-      <p class="section-description">Meine tierischen Begleiter in Polaroid-Erinnerungen</p>
-      
-      <div class="pet-grid">
-        <div class="polaroid-card">
-          <img src="images/Balu_06.jpeg" alt="Katze Luna" class="polaroid-image">
-          <div class="polaroid-caption">
-            <h3>Luna</h3>
-            <p>Meine Britisch Kurzhaar Katze - neugierig und verspielt, begleitet mich seit 3 Jahren durch den Alltag.</p>
-          </div>
-        </div>
-        
-        <div class="polaroid-card">
-          <img src="images/Balu_04.jpeg" alt="Hund Max" class="polaroid-image">
-          <div class="polaroid-caption">
-            <h3>Max</h3>
-            <p>Unser Familienhund - treuer Begleiter für lange Spaziergänge und Abenteuer im Wald.</p>
-          </div>
-        </div>
-        
-        <div class="polaroid-card">
-          <img src="images/Balu_03.jpeg" alt="Spielzeit mit Haustieren" class="polaroid-image">
-          <div class="polaroid-caption">
-            <h3>Spielzeit</h3>
-            <p>Die schönsten Momente sind die gemeinsamen Spielstunden mit meinen tierischen Freunden.</p>
-          </div>
-        </div>
-        
-        <div class="polaroid-card">
-          <img src="images/Balu_01.jpeg" alt="Entspannung mit Haustieren" class="polaroid-image">
-          <div class="polaroid-caption">
-            <h3>Entspannung</h3>
-            <p>Ruhige Stunden zusammen - wenn die Tiere entspannen und ich Zeit zum Lesen habe.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Auto -->
-  <section id="auto" class="section auto-section">
-    <div class="section-content">
-      <h2 class="section-title">Automobil</h2>
-      <p class="section-description">Meine Leidenschaft für Fahrzeuge, Technik und Reisen</p>
-      
-      <div class="car-grid">
-        <div class="car-card">
-          <img src="images/Audi_09.jpeg" alt="Auto Alltagsbegleiter" class="car-image">
-          <div class="car-details">
-            <h3>Täglicher Begleiter</h3>
-            <p>Mein Alltagsauto - zuverlässig und komfortabel für tägliche Fahrten zur Arbeit und zurück.</p>
-          </div>
-        </div>
-        
-        <div class="car-card">
-          <img src="images/Audi_12.jpeg" alt="Wochenendtouren Auto" class="car-image">
-          <div class="car-details">
-            <h3>Wochenendtouren</h3>
-            <p>Für ausgedehnte Fahrten und Entdeckungstouren am Wochenende durch die umliegende Natur.</p>
-          </div>
-        </div>
-        
-        <div class="car-card">
-          <img src="images/Audi_16.jpeg" alt="Auto Technik Details" class="car-image">
-          <div class="car-details">
-            <h3>Technik & Details</h3>
-            <p>Faszination für innovative Technologien und durchdachtes Design im Automobilbau.</p>
-          </div>
-        </div>
-        
-        <div class="car-card">
-          <img src="images/Audi_22.jpeg" alt="Nachtfahrten Auto" class="car-image">
-          <div class="car-details">
-            <h3>Nachtfahrten</h3>
-            <p>Die besondere Atmosphäre nächtlicher Fahrten auf leeren Straßen mit guter Musik.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Musik -->
-  <section id="musik" class="section music-section">
-    <div class="section-content">
-      <h2 class="section-title">Musik</h2>
-      <p class="section-description">Soundtracks meines Lebens - hören Sie meine Playlists auf Spotify</p>
-      
-      <div class="music-container">
-        <div class="spotify-section">
-          <div class="playlist-card">
-            <h3>Entspannung & Fokus</h3>
-            <p class="playlist-description">
-              Ruhige Töne für konzentriertes Arbeiten und entspannte Abende. 
-              Eine sorgfältig kuratierte Playlist mit Lo-Fi Beats und Ambient Sounds.
-            </p>
-            <a href="https://open.spotify.com/playlist/37i9dQZF1DX4WYpdgoIcn6" target="_blank" class="spotify-link">
-              <span style="font-size: 1.2rem;">▶</span> Auf Spotify anhören
-            </a>
-          </div>
-          
-          <div class="playlist-card">
-            <h3>Energie & Sport</h3>
-            <p class="playlist-description">
-              Power-Tracks für Workouts und sportliche Aktivitäten. 
-              Motivierende Beats die Energie geben und die Stimmung heben.
-            </p>
-            <a href="https://open.spotify.com/playlist/37i9dQZF1DX76Wlfdnj7AP" target="_blank" class="spotify-link">
-              <span style="font-size: 1.2rem;">▶</span> Auf Spotify anhören
-            </a>
-          </div>
-          
-          <div class="playlist-card">
-            <h3>Reisen & Straße</h3>
-            <p class="playlist-description">
-              Perfekte Begleitung für lange Fahrten und Reisen. 
-              Ein Mix aus Indie, Alternative und Roadtrip-Klassikern.
-            </p>
-            <a href="https://open.spotify.com/playlist/37i9dQZF1DX9wC1KY45plY" target="_blank" class="spotify-link">
-              <span style="font-size: 1.2rem;">▶</span> Auf Spotify anhören
-            </a>
-          </div>
-          
-          <div class="qr-section">
-            <div class="qr-code">
-              <div style="text-align: center;">
-                <img src="images/spotify.png" alt="SpotifyQR ">
-              </div>
-            </div>
-            <p class="qr-note">
-              Scannen Sie den QR-Code mit Ihrem Smartphone,<br>
-              um direkt zu meinen Spotify-Playlists zu gelangen.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Reisen -->
-  <section id="reisen" class="section travel-section">
-    <div class="section-content">
-      <h2 class="section-title">Reisen</h2>
-      <p class="section-description">Scrollen Sie durch die Länder - Pass-Stempel erscheinen zwischen den Zielen</p>
-      
-      <div class="travel-sequence">
-        <!-- Madeira -->
-        <div class="travel-item">
-          <div class="country-card" data-country="madeira" data-distance="550">
-            <div class="country-header">
-              <h3>Madeira</h3>
-              <div class="country-distance">550 km von Deutschland</div>
-              <p class="country-description">Die Landschaftlich schönste Reise bisher.</p>
-            </div>
-            <div class="country-gallery">
-              <img src="images/Madeira_01.JPG" alt="Alpen Österreich">
-              <img src="images/Madeira_06.JPG" alt="Wien Stadt">
-              <img src="images/Madeira_03.jpeg" alt="Bergsee Österreich">
-              <img src="images/Madeira_04.jpeg" alt="Österreich Alpen">
-              <img src="images/Madeira_04.JPG" alt="Tirol Österreich">
-              <img src="images/Madeira_05.JPG" alt="Österreich Dorf">
-            </div>
-          </div>
+    <!-- Home -->
+    <section id="home" class="section home-section">
+        <div class="section-content">
+            <h1 class="section-title">Willkommen</h1>
+            <p class="section-description">Persönliche Einblicke in meine Interessen und Erlebnisse</p>
         </div>
 
-        <!-- Spacer 1 nur mit Pass-Stempel -->
-        <div class="travel-spacer">
-          <div class="passport-stamp" id="stamp1">
-            <div class="stamp-inner">
-              <div class="stamp-country">ÖSTERREICH</div>
-              <div class="stamp-symbol">🏔️</div>
-              <div class="stamp-date">MAI 2023</div>
-            </div>
-          </div>
-          <div class="spacer-content">
-            <p class="spacer-text" id="spacerText1">Reise nach Italien<br>950 km Entfernung</p>
-          </div>
-        </div>
+        <div class="scroll-hint">Scrollen Sie nach unten</div>
+    </section>
 
-        <!-- Italien -->
-        <div class="travel-item">
-          <div class="country-card" data-country="italien" data-distance="950">
-            <div class="country-header">
-              <h3>Italien</h3>
-              <p class="country-description"> Wenn wir jetzt losfahren sind wir in 3h in Italien. </p>
-            </div>
-            <div class="country-gallery">
-              <img src="images/Italy_02.jpeg" alt="Sizilien">
-              <img src="images/Italy_03.jpeg" alt="Sizilien">
-              <img src="images/Italy_04.jpeg" alt="Sizilien">
-              <img src="images/Italy_07.jpeg" alt="Garda See">
-              <img src="images/Italy_08.jpeg" alt="Comer See">
-              <img src="images/Italy_12.jpeg" alt="Comer See">
-            </div>
-          </div>
-        </div>
+    <!-- Haustier -->
+    <section id="haustier" class="section pet-section">
+        <div class="section-content">
+            <h2 class="section-title">Mein Haustier</h2>
+            <p class="section-description">Meine tierischen Begleiter in Polaroid-Erinnerungen</p>
 
-        <!-- Spacer 2 nur mit Pass-Stempel -->
-        <div class="travel-spacer">
-          <div class="passport-stamp" id="stamp2">
-            <div class="stamp-inner">
-              <div class="stamp-country">ITALIEN</div>
-              <div class="stamp-symbol">🍕</div>
-              <div class="stamp-date">AUGUST 2023</div>
-            </div>
-          </div>
-          <div class="spacer-content">
-            <p class="spacer-text" id="spacerText2">Reise nach Kroatien<br>800 km Entfernung</p>
-          </div>
-        </div>
+            <div class="pet-grid">
+                <div class="polaroid-card">
+                    <img src="images/Balu_06.jpeg" alt="Katze Luna" class="polaroid-image">
+                    <div class="polaroid-caption">
+                        <h3>Luna</h3>
+                        <p>Meine Britisch Kurzhaar Katze - neugierig und verspielt, begleitet mich seit 3 Jahren durch den
+                            Alltag.</p>
+                    </div>
+                </div>
 
-        <!-- Kroatien -->
-        <div class="travel-item">
-          <div class="country-card" data-country="kroatien" data-distance="800">
-            <div class="country-header">
-              <h3>Kroatien</h3>
-              <div class="country-distance">800 km von Deutschland</div>
-              <p class="country-description">Kristallklares Wasser, historische Altstädte und über 1.000 Inseln an der Adria. Perfekte Strände und kulturelle Schätze.</p>
-            </div>
-            <div class="country-gallery">
-              <img src="images/Kroatien_01.jpeg" alt="Dubrovnik Altstadt">
-              <img src="images/Kroatien_02.jpeg" alt="Plitvicer Seen">
-              <img src="images/Kroatien_09.jpeg" alt="Adria Küste">
-              <img src="images/Kroatien_05.jpeg" alt="Kroatien Strand">
-              <img src="images/Kroatien_07.jpeg" alt="Kroatien Inseln">
-              <img src="images/Kroatien_11.jpeg" alt="Kroatien Kultur">
-            </div>
-          </div>
-        </div>
+                <div class="polaroid-card">
+                    <img src="images/Balu_04.jpeg" alt="Hund Max" class="polaroid-image">
+                    <div class="polaroid-caption">
+                        <h3>Max</h3>
+                        <p>Unser Familienhund - treuer Begleiter für lange Spaziergänge und Abenteuer im Wald.</p>
+                    </div>
+                </div>
 
-        <!-- Spacer 3 nur mit Pass-Stempel -->
-        <div class="travel-spacer">
-          <div class="passport-stamp" id="stamp3">
-            <div class="stamp-inner">
-              <div class="stamp-country">KROATIEN</div>
-              <div class="stamp-symbol">🏖️</div>
-              <div class="stamp-date">JULI 2022</div>
-            </div>
-          </div>
-          <div class="spacer-content">
-            <p class="spacer-text" id="spacerText3">Reise nach Frankreich<br>600 km Entfernung</p>
-          </div>
-        </div>
+                <div class="polaroid-card">
+                    <img src="images/Balu_03.jpeg" alt="Spielzeit mit Haustieren" class="polaroid-image">
+                    <div class="polaroid-caption">
+                        <h3>Spielzeit</h3>
+                        <p>Die schönsten Momente sind die gemeinsamen Spielstunden mit meinen tierischen Freunden.</p>
+                    </div>
+                </div>
 
-        <!-- Frankreich -->
-        <div class="travel-item">
-          <div class="country-card" data-country="frankreich" data-distance="600">
-            <div class="country-header">
-              <h3>Frankreich</h3>
-              <div class="country-distance">600 km von Deutschland</div>
-              <p class="country-description">Von Pariser Charme über provenzalische Landschaften bis zu alpinen Gipfeln. Kulinarische Höhepunkte und atemberaubende Architektur.</p>
+                <div class="polaroid-card">
+                    <img src="images/Balu_01.jpeg" alt="Entspannung mit Haustieren" class="polaroid-image">
+                    <div class="polaroid-caption">
+                        <h3>Entspannung</h3>
+                        <p>Ruhige Stunden zusammen - wenn die Tiere entspannen und ich Zeit zum Lesen habe.</p>
+                    </div>
+                </div>
             </div>
-            <div class="country-gallery">
-              <img src="images/France_05.jpeg" alt="Paris Eiffelturm">
-              <img src="images/France_08.jpeg" alt="Provence Lavendelfelder">
-              <img src="images/France_09.jpeg" alt="Südfrankreich Küste">
-              <img src="images/France_04.jpeg" alt="Frankreich Kultur">
-              <img src="images/France_03.jpeg" alt="Frankreich Wein">
-              <img src="images/France_02.jpeg" alt="Frankreich Berge">
-            </div>
-          </div>
         </div>
+    </section>
 
-        <!-- Spacer 4 nur mit Pass-Stempel -->
-        <div class="travel-spacer">
-          <div class="passport-stamp" id="stamp4">
-            <div class="stamp-inner">
-              <div class="stamp-country">FRANKREICH</div>
-              <div class="stamp-symbol">🗼</div>
-              <div class="stamp-date">APRIL 2023</div>
+    <!-- Auto -->
+    <section id="auto" class="section auto-section">
+        <div class="section-content">
+            <h2 class="section-title">Automobil</h2>
+            <p class="section-description">Meine Leidenschaft für Fahrzeuge, Technik und Reisen</p>
+
+            <div class="car-grid">
+                <div class="car-card">
+                    <img src="images/Audi_09.jpeg" alt="Auto Alltagsbegleiter" class="car-image">
+                    <div class="car-details">
+                        <h3>Täglicher Begleiter</h3>
+                        <p>Mein Alltagsauto - zuverlässig und komfortabel für tägliche Fahrten zur Arbeit und zurück.</p>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <img src="images/Audi_12.jpeg" alt="Wochenendtouren Auto" class="car-image">
+                    <div class="car-details">
+                        <h3>Wochenendtouren</h3>
+                        <p>Für ausgedehnte Fahrten und Entdeckungstouren am Wochenende durch die umliegende Natur.</p>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <img src="images/Audi_16.jpeg" alt="Auto Technik Details" class="car-image">
+                    <div class="car-details">
+                        <h3>Technik & Details</h3>
+                        <p>Faszination für innovative Technologien und durchdachtes Design im Automobilbau.</p>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <img src="images/Audi_22.jpeg" alt="Nachtfahrten Auto" class="car-image">
+                    <div class="car-details">
+                        <h3>Nachtfahrten</h3>
+                        <p>Die besondere Atmosphäre nächtlicher Fahrten auf leeren Straßen mit guter Musik.</p>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="spacer-content">
-            <p class="spacer-text" id="spacerText4">Reise in die USA<br>7.500 km Entfernung</p>
-          </div>
         </div>
+    </section>
 
-        <!-- USA -->
-        <div class="travel-item">
-          <div class="country-card" data-country="usa" data-distance="7500">
-            <div class="country-header">
-              <h3>USA</h3>
-              <div class="country-distance">7.500 km von Deutschland</div>
-              <p class="country-description">Von den Metropolen der Ostküste bis zu den Nationalparks des Westens - Land der unbegrenzten Möglichkeiten. Roadtrips durch Kalifornien und urbane Abenteuer in New York.</p>
+    <!-- Musik -->
+    <section id="musik" class="section music-section">
+        <div class="section-content">
+            <h2 class="section-title">Musik</h2>
+            <p class="section-description">Soundtracks meines Lebens - hören Sie meine Playlists auf Spotify</p>
+
+            <div class="music-container">
+                <div class="spotify-section">
+                    <div class="playlist-card">
+                        <h3>Entspannung & Fokus</h3>
+                        <p class="playlist-description">
+                            Ruhige Töne für konzentriertes Arbeiten und entspannte Abende.
+                            Eine sorgfältig kuratierte Playlist mit Lo-Fi Beats und Ambient Sounds.
+                        </p>
+                        <a href="https://open.spotify.com/playlist/37i9dQZF1DX4WYpdgoIcn6" target="_blank"
+                            class="spotify-link">
+                            <span style="font-size: 1.2rem;">▶</span> Auf Spotify anhören
+                        </a>
+                    </div>
+
+                    <div class="playlist-card">
+                        <h3>Energie & Sport</h3>
+                        <p class="playlist-description">
+                            Power-Tracks für Workouts und sportliche Aktivitäten.
+                            Motivierende Beats die Energie geben und die Stimmung heben.
+                        </p>
+                        <a href="https://open.spotify.com/playlist/37i9dQZF1DX76Wlfdnj7AP" target="_blank"
+                            class="spotify-link">
+                            <span style="font-size: 1.2rem;">▶</span> Auf Spotify anhören
+                        </a>
+                    </div>
+
+                    <div class="playlist-card">
+                        <h3>Reisen & Straße</h3>
+                        <p class="playlist-description">
+                            Perfekte Begleitung für lange Fahrten und Reisen.
+                            Ein Mix aus Indie, Alternative und Roadtrip-Klassikern.
+                        </p>
+                        <a href="https://open.spotify.com/playlist/37i9dQZF1DX9wC1KY45plY" target="_blank"
+                            class="spotify-link">
+                            <span style="font-size: 1.2rem;">▶</span> Auf Spotify anhören
+                        </a>
+                    </div>
+
+                    <div class="qr-section">
+                        <div class="qr-code">
+                            <div style="text-align: center;">
+                                <img src="images/spotify.png" alt="SpotifyQR ">
+                            </div>
+                        </div>
+                        <p class="qr-note">
+                            Scannen Sie den QR-Code mit Ihrem Smartphone,<br>
+                            um direkt zu meinen Spotify-Playlists zu gelangen.
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="country-gallery">
-              <img src="images/USA_02.jpeg" alt="New York Skyline">
-              <img src="images/USA_05.jpeg" alt="Grand Canyon">
-              <img src="images/USA_06.jpeg" alt="Kalifornien Küste">
-              <img src="images/USA_11.jpeg" alt="USA Nationalparks">
-              <img src="images/USA_12.jpeg" alt="USA Städte">
-              <img src="images/USA_07.jpeg" alt="USA Natur">
-            </div>
-          </div>
         </div>
+    </section>
 
-        <!-- Spacer 5 nur mit Pass-Stempel -->
-        <div class="travel-spacer">
-          <div class="passport-stamp" id="stamp5">
-            <div class="stamp-inner">
-              <div class="stamp-country">USA</div>
-              <div class="stamp-symbol">🗽</div>
-              <div class="stamp-date">SEPTEMBER 2024</div>
+    <!-- Reisen -->
+    <section id="reisen" class="section travel-section">
+        <div class="section-content">
+            <h2 class="section-title">Reisen</h2>
+            <p class="section-description">Scrollen Sie durch die Länder - Pass-Stempel erscheinen zwischen den Zielen</p>
+
+            <div class="travel-sequence">
+                <!-- Madeira -->
+                <div class="travel-item">
+                    <div class="country-card" data-country="madeira" data-distance="550">
+                        <div class="country-header">
+                            <h3>Madeira</h3>
+                            <div class="country-distance">550 km von Deutschland</div>
+                            <p class="country-description">Die Landschaftlich schönste Reise bisher.</p>
+                        </div>
+                        <div class="country-gallery">
+                            <img src="images/Madeira_01.JPG" alt="Alpen Österreich">
+                            <img src="images/Madeira_06.JPG" alt="Wien Stadt">
+                            <img src="images/Madeira_03.jpeg" alt="Bergsee Österreich">
+                            <img src="images/Madeira_04.jpeg" alt="Österreich Alpen">
+                            <img src="images/Madeira_04.JPG" alt="Tirol Österreich">
+                            <img src="images/Madeira_05.JPG" alt="Österreich Dorf">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spacer 1 nur mit Pass-Stempel -->
+                <!-- Spacer mit Passport-Animation -->
+                <div class="travel-spacer" data-country="madeira">
+                    <!-- Passport Container -->
+                    <div class="passport-container">
+                        <!-- Cover -->
+                        <div class="passport-cover" id="passportCoverMadeira">
+                            <div class="cover-title">PASSPORT</div>
+                            <div class="cover-subtitle">EUROPEAN UNION</div>
+                        </div>
+
+                        <!-- Innenseite LINKS -->
+                        <div class="passport-inside-left">
+                            <div class="passport-info-page">
+                                <div class="passport-number">T30922A9</div>
+                                <div class="passport-name">NIKLAS REISENDER</div>
+
+                                <div class="passport-photo">
+                                    PASSPORT<br>PHOTO
+                                </div>
+
+                                <div class="passport-details">
+                                    <div class="detail-line">
+                                        <span class="detail-label">Type:</span> P
+                                    </div>
+                                    <div class="detail-line">
+                                        <span class="detail-label">Code:</span> EUXX
+                                    </div>
+                                    <div class="detail-line">
+                                        <span class="detail-label">Passport No:</span> EU78901234
+                                    </div>
+                                    <div class="detail-line">
+                                        <span class="detail-label">Surname:</span> EXPLORER
+                                    </div>
+                                    <div class="detail-line">
+                                        <span class="detail-label">Given names:</span> WORLD TRAVELER
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Innenseite RECHTS -->
+                        <div class="passport-inside-right">
+                            <div class="stamp-page">
+                                <div style="color: #666; font-size: 1.1rem; margin-bottom: 20px;">
+                                    ENTRY STAMPS
+                                </div>
+                                <div style="color: #999; font-size: 0.9rem; font-style: italic;">
+                                    Official entry stamps
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bindefalz -->
+                        <div class="page-spine"></div>
+
+                        <!-- Stempel -->
+                        <div class="passport-stamp">
+                            <div class="stamp-inner">
+                                <div class="stamp-country">MADEIRA</div>
+                                <div class="stamp-symbol">🌺</div>
+                                <div class="stamp-date">12 MAY 2024</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Italien -->
+                <div class="travel-item">
+                    <div class="country-card" data-country="italien" data-distance="950">
+                        <div class="country-header">
+                            <h3>Italien</h3>
+                            <p class="country-description"> Wenn wir jetzt losfahren sind wir in 3h in Italien. </p>
+                        </div>
+                        <div class="country-gallery">
+                            <img src="images/Italy_02.jpeg" alt="Sizilien">
+                            <img src="images/Italy_03.jpeg" alt="Sizilien">
+                            <img src="images/Italy_04.jpeg" alt="Sizilien">
+                            <img src="images/Italy_07.jpeg" alt="Garda See">
+                            <img src="images/Italy_08.jpeg" alt="Comer See">
+                            <img src="images/Italy_12.jpeg" alt="Comer See">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spacer 2 nur mit Pass-Stempel -->
+                <!-- Spacer 2 - Italien -->
+                <div class="travel-spacer" data-country="italien">
+                    <!-- Passport Container -->
+                    <div class="passport-container">
+                        <!-- Cover -->
+                        <div class="passport-cover" id="passportCoverItalien">
+                            <div class="cover-title">PASSPORT</div>
+                            <div class="cover-subtitle">EUROPEAN UNION</div>
+                        </div>
+
+                        <!-- Innenseite LINKS -->
+                        <div class="passport-inside-left">
+                            <div class="passport-info-page">
+                                <div class="passport-number">T30922A9</div>
+                                <div class="passport-name">NIKLAS REISENDER</div>
+
+                                <div class="passport-photo">
+                                    PASSPORT<br>PHOTO
+                                </div>
+
+                                <div class="passport-details">
+                                    <div class="detail-line">
+                                        <span class="detail-label">Type:</span> P
+                                    </div>
+                                    <div class="detail-line">
+                                        <span class="detail-label">Code:</span> EUXX
+                                    </div>
+                                    <div class="detail-line">
+                                        <span class="detail-label">Passport No:</span> EU78901234
+                                    </div>
+                                    <div class="detail-line">
+                                        <span class="detail-label">Surname:</span> EXPLORER
+                                    </div>
+                                    <div class="detail-line">
+                                        <span class="detail-label">Given names:</span> WORLD TRAVELER
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Innenseite RECHTS -->
+                        <div class="passport-inside-right">
+                            <div class="stamp-page">
+                                <div style="color: #666; font-size: 1.1rem; margin-bottom: 20px;">
+                                    ENTRY STAMPS
+                                </div>
+                                <div style="color: #999; font-size: 0.9rem; font-style: italic;">
+                                    Official entry stamps
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bindefalz -->
+                        <div class="page-spine"></div>
+
+                        <!-- Stempel ITALIEN -->
+                        <div class="passport-stamp">
+                            <div class="stamp-inner">
+                                <div class="stamp-country">ITALIEN</div>
+                                <div class="stamp-symbol">🍕</div>
+                                <div class="stamp-date">AUGUST 2023</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kroatien -->
+                <div class="travel-item">
+                    <div class="country-card" data-country="kroatien" data-distance="800">
+                        <div class="country-header">
+                            <h3>Kroatien</h3>
+                            <div class="country-distance">800 km von Deutschland</div>
+                            <p class="country-description">Kristallklares Wasser, historische Altstädte und über 1.000 Inseln
+                                an der Adria. Perfekte Strände und kulturelle Schätze.</p>
+                        </div>
+                        <div class="country-gallery">
+                            <img src="images/Kroatien_01.jpeg" alt="Dubrovnik Altstadt">
+                            <img src="images/Kroatien_02.jpeg" alt="Plitvicer Seen">
+                            <img src="images/Kroatien_09.jpeg" alt="Adria Küste">
+                            <img src="images/Kroatien_05.jpeg" alt="Kroatien Strand">
+                            <img src="images/Kroatien_07.jpeg" alt="Kroatien Inseln">
+                            <img src="images/Kroatien_11.jpeg" alt="Kroatien Kultur">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spacer 3 nur mit Pass-Stempel -->
+                <!-- Spacer 3 - Kroatien -->
+                <div class="travel-spacer" data-country="kroatien">
+                    <!-- Passport Container -->
+                    <div class="passport-container">
+                        <!-- Cover -->
+                        <div class="passport-cover" id="passportCoverKroatien">
+                            <div class="cover-title">PASSPORT</div>
+                            <div class="cover-subtitle">EUROPEAN UNION</div>
+                        </div>
+
+                        <!-- Innenseite LINKS -->
+                        <div class="passport-inside-left">
+                            <div class="passport-info-page">
+                                <div class="passport-number">T30922A9</div>
+                                <div class="passport-name">NIKLAS REISENDER</div>
+
+                                <div class="passport-photo">
+                                    PASSPORT<br>PHOTO
+                                </div>
+
+                                <div class="passport-details">
+                                    <div class="detail-line">
+                                        <span class="detail-label">Type:</span> P
+                                    </div>
+                                    <div class="detail-line">
+                                        <span class="detail-label">Code:</span> EUXX
+                                    </div>
+                                    <div class="detail-line">
+                                        <span class="detail-label">Passport No:</span> EU78901234
+                                    </div>
+                                    <div class="detail-line">
+                                        <span class="detail-label">Surname:</span> EXPLORER
+                                    </div>
+                                    <div class="detail-line">
+                                        <span class="detail-label">Given names:</span> WORLD TRAVELER
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Innenseite RECHTS -->
+                        <div class="passport-inside-right">
+                            <div class="stamp-page">
+                                <div style="color: #666; font-size: 1.1rem; margin-bottom: 20px;">
+                                    ENTRY STAMPS
+                                </div>
+                                <div style="color: #999; font-size: 0.9rem; font-style: italic;">
+                                    Official entry stamps
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bindefalz -->
+                        <div class="page-spine"></div>
+
+                        <!-- Stempel KROATIEN -->
+                        <div class="passport-stamp">
+                            <div class="stamp-inner">
+                                <div class="stamp-country">KROATIEN</div>
+                                <div class="stamp-symbol">🏖️</div>
+                                <div class="stamp-date">JULI 2022</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frankreich -->
+                <div class="travel-item">
+                    <div class="country-card" data-country="frankreich" data-distance="600">
+                        <div class="country-header">
+                            <h3>Frankreich</h3>
+                            <div class="country-distance">600 km von Deutschland</div>
+                            <p class="country-description">Von Pariser Charme über provenzalische Landschaften bis zu alpinen
+                                Gipfeln. Kulinarische Höhepunkte und atemberaubende Architektur.</p>
+                        </div>
+                        <div class="country-gallery">
+                            <img src="images/France_05.jpeg" alt="Paris Eiffelturm">
+                            <img src="images/France_08.jpeg" alt="Provence Lavendelfelder">
+                            <img src="images/France_09.jpeg" alt="Südfrankreich Küste">
+                            <img src="images/France_04.jpeg" alt="Frankreich Kultur">
+                            <img src="images/France_03.jpeg" alt="Frankreich Wein">
+                            <img src="images/France_02.jpeg" alt="Frankreich Berge">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spacer 4 nur mit Pass-Stempel -->
+                <!-- Spacer 4 - Frankreich -->
+                <div class="travel-spacer" data-country="frankreich">
+                    <!-- Passport Container -->
+                    <div class="passport-container">
+                        <!-- Cover -->
+                        <div class="passport-cover" id="passportCoverFrankreich">
+                            <div class="cover-title">PASSPORT</div>
+                            <div class="cover-subtitle">EUROPEAN UNION</div>
+                        </div>
+
+                        <!-- Innenseite LINKS -->
+                        <div class="passport-inside-left">
+                            <div class="passport-info-page">
+                                <div class="passport-number">T30922A9</div>
+                                <div class="passport-name">NIKLAS REISENDER</div>
+
+                                <div class="passport-photo">
+                                    PASSPORT<br>PHOTO
+                                </div>
+
+                                <div class="passport-details">
+                                    <div class="detail-line">
+                                        <span class="detail-label">Type:</span> P
+                                    </div>
+                                    <div class="detail-line">
+                                        <span class="detail-label">Code:</span> EUXX
+                                    </div>
+                                    <div class="detail-line">
+                                        <span class="detail-label">Passport No:</span> EU78901234
+                                    </div>
+                                    <div class="detail-line">
+                                        <span class="detail-label">Surname:</span> EXPLORER
+                                    </div>
+                                    <div class="detail-line">
+                                        <span class="detail-label">Given names:</span> WORLD TRAVELER
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Innenseite RECHTS -->
+                        <div class="passport-inside-right">
+                            <div class="stamp-page">
+                                <div style="color: #666; font-size: 1.1rem; margin-bottom: 20px;">
+                                    ENTRY STAMPS
+                                </div>
+                                <div style="color: #999; font-size: 0.9rem; font-style: italic;">
+                                    Official entry stamps
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bindefalz -->
+                        <div class="page-spine"></div>
+
+                        <!-- Stempel FRANKREICH -->
+                        <div class="passport-stamp">
+                            <div class="stamp-inner">
+                                <div class="stamp-country">FRANKREICH</div>
+                                <div class="stamp-symbol">🗼</div>
+                                <div class="stamp-date">APRIL 2023</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- USA -->
+                <div class="travel-item">
+                    <div class="country-card" data-country="usa" data-distance="7500">
+                        <div class="country-header">
+                            <h3>USA</h3>
+                            <div class="country-distance">7.500 km von Deutschland</div>
+                            <p class="country-description">Von den Metropolen der Ostküste bis zu den Nationalparks des Westens
+                                - Land der unbegrenzten Möglichkeiten. Roadtrips durch Kalifornien und urbane Abenteuer in New
+                                York.</p>
+                        </div>
+                        <div class="country-gallery">
+                            <img src="images/USA_02.jpeg" alt="New York Skyline">
+                            <img src="images/USA_05.jpeg" alt="Grand Canyon">
+                            <img src="images/USA_06.jpeg" alt="Kalifornien Küste">
+                            <img src="images/USA_11.jpeg" alt="USA Nationalparks">
+                            <img src="images/USA_12.jpeg" alt="USA Städte">
+                            <img src="images/USA_07.jpeg" alt="USA Natur">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spacer 5 nur mit Pass-Stempel -->
+                <!-- Spacer 5 - USA -->
+                <div class="travel-spacer" data-country="usa">
+                    <!-- Passport Container -->
+                    <div class="passport-container">
+                        <!-- Cover -->
+                        <div class="passport-cover" id="passportCoverUSA">
+                            <div class="cover-title">PASSPORT</div>
+                            <div class="cover-subtitle">UNITED STATES</div>
+                        </div>
+
+                        <!-- Innenseite LINKS -->
+                        <div class="passport-inside-left">
+                            <div class="passport-info-page">
+                                <div class="passport-number">T30922A9</div>
+                                <div class="passport-name">NIKLAS REISENDER</div>
+
+                                <div class="passport-photo">
+                                    PASSPORT<br>PHOTO
+                                </div>
+
+                                <div class="passport-details">
+                                    <div class="detail-line">
+                                        <span class="detail-label">Type:</span> P
+                                    </div>
+                                    <div class="detail-line">
+                                        <span class="detail-label">Code:</span> USXX
+                                    </div>
+                                    <div class="detail-line">
+                                        <span class="detail-label">Passport No:</span> US78901234
+                                    </div>
+                                    <div class="detail-line">
+                                        <span class="detail-label">Surname:</span> EXPLORER
+                                    </div>
+                                    <div class="detail-line">
+                                        <span class="detail-label">Given names:</span> WORLD TRAVELER
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Innenseite RECHTS -->
+                        <div class="passport-inside-right">
+                            <div class="stamp-page">
+                                <div style="color: #666; font-size: 1.1rem; margin-bottom: 20px;">
+                                    ENTRY STAMPS
+                                </div>
+                                <div style="color: #999; font-size: 0.9rem; font-style: italic;">
+                                    Official entry stamps
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bindefalz -->
+                        <div class="page-spine"></div>
+
+                        <!-- Stempel USA -->
+                        <div class="passport-stamp">
+                            <div class="stamp-inner">
+                                <div class="stamp-country">USA</div>
+                                <div class="stamp-symbol">🗽</div>
+                                <div class="stamp-date">SEPTEMBER 2024</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kanada -->
+                <div class="travel-item">
+                    <div class="country-card" data-country="kanada" data-distance="6500">
+                        <div class="country-header">
+                            <h3>Kanada</h3>
+                            <div class="country-distance">6.500 km von Deutschland</div>
+                            <p class="country-description">Weite Landschaften, unberührte Natur und die Freundlichkeit der
+                                Menschen in den Nationalparks. Wandern in den Rocky Mountains und Großstadtflair in Toronto.</p>
+                        </div>
+                        <div class="country-gallery">
+                            <img src="images/Canada_04.jpeg" alt="Rocky Mountains Kanada">
+                            <img src="images/Canada_02.jpeg" alt="Toronto Skyline">
+                            <img src="images/Canada_03.jpeg" alt="Niagarafälle">
+                            <img src="images/Flugzeug_01.jpeg" alt="Kanada Seen">
+                            <img src="images/Canada_05.jpeg" alt="Kanada Wildnis">
+                            <img src="images/Canada_01.jpeg" alt="Kanada Städte">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spacer 6 nur mit Pass-Stempel -->
+                <!-- Spacer 6 - Kanada -->
+                <div class="travel-spacer" data-country="kanada">
+                    <!-- Passport Container -->
+                    <div class="passport-container">
+                        <!-- Cover -->
+                        <div class="passport-cover" id="passportCoverKanada">
+                            <div class="cover-title">PASSPORT</div>
+                            <div class="cover-subtitle">CANADA</div>
+                        </div>
+
+                        <!-- Innenseite LINKS -->
+                        <div class="passport-inside-left">
+                            <div class="passport-info-page">
+                                <div class="passport-number">T30922A9</div>
+                                <div class="passport-name">NIKLAS REISENDER</div>
+
+                                <div class="passport-photo">
+                                    PASSPORT<br>PHOTO
+                                </div>
+
+                                <div class="passport-details">
+                                    <div class="detail-line">
+                                        <span class="detail-label">Type:</span> P
+                                    </div>
+                                    <div class="detail-line">
+                                        <span class="detail-label">Code:</span> CAXX
+                                    </div>
+                                    <div class="detail-line">
+                                        <span class="detail-label">Passport No:</span> CA78901234
+                                    </div>
+                                    <div class="detail-line">
+                                        <span class="detail-label">Surname:</span> EXPLORER
+                                    </div>
+                                    <div class="detail-line">
+                                        <span class="detail-label">Given names:</span> WORLD TRAVELER
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Innenseite RECHTS -->
+                        <div class="passport-inside-right">
+                            <div class="stamp-page">
+                                <div style="color: #666; font-size: 1.1rem; margin-bottom: 20px;">
+                                    ENTRY STAMPS
+                                </div>
+                                <div style="color: #999; font-size: 0.9rem; font-style: italic;">
+                                    Official entry stamps
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bindefalz -->
+                        <div class="page-spine"></div>
+
+                        <!-- Stempel KANADA -->
+                        <div class="passport-stamp">
+                            <div class="stamp-inner">
+                                <div class="stamp-country">KANADA</div>
+                                <div class="stamp-symbol">🍁</div>
+                                <div class="stamp-date">OKTOBER 2024</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- China -->
+                <div class="travel-item">
+                    <div class="country-card" data-country="china" data-distance="7800">
+                        <div class="country-header">
+                            <h3>China</h3>
+                            <div class="country-distance">7.800 km von Deutschland</div>
+                            <p class="country-description">Alte Traditionen treffen auf moderne Megastädte – eine Reise
+                                zwischen Vergangenheit und Zukunft. Die Große Mauer, Pandas und futuristische Skyline von
+                                Shanghai.</p>
+                        </div>
+                        <div class="country-gallery">
+                            <img src="images/China_11.jpeg" alt="Chinesische Mauer">
+                            <img src="images/China_13.jpeg" alt="Shanghai Skyline">
+                            <img src="images/China_14.jpeg" alt="Pandas China">
+                            <img src="images/China_01.jpeg" alt="China Tradition">
+                            <img src="images/China_06.jpeg" alt="China Moderne">
+                            <img src="images/China_03.jpeg" alt="China Natur">
+                        </div>
+                    </div>
+                </div>
+                <!-- Spacer 7 - China -->
+                <div class="travel-spacer" data-country="china">
+                    <!-- Passport Container -->
+                    <div class="passport-container">
+                        <!-- Cover -->
+                        <div class="passport-cover" id="passportCoverChina">
+                            <div class="cover-title">PASSPORT</div>
+                            <div class="cover-subtitle">PEOPLE'S REPUBLIC</div>
+                        </div>
+
+                        <!-- Innenseite LINKS -->
+                        <div class="passport-inside-left">
+                            <div class="passport-info-page">
+                                <div class="passport-number">T30922A9</div>
+                                <div class="passport-name">NIKLAS REISENDER</div>
+
+                                <div class="passport-photo">
+                                    PASSPORT<br>PHOTO
+                                </div>
+
+                                <div class="passport-details">
+                                    <div class="detail-line">
+                                        <span class="detail-label">Type:</span> P
+                                    </div>
+                                    <div class="detail-line">
+                                        <span class="detail-label">Code:</span> CNXX
+                                    </div>
+                                    <div class="detail-line">
+                                        <span class="detail-label">Passport No:</span> CN78901234
+                                    </div>
+                                    <div class="detail-line">
+                                        <span class="detail-label">Surname:</span> EXPLORER
+                                    </div>
+                                    <div class="detail-line">
+                                        <span class="detail-label">Given names:</span> WORLD TRAVELER
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Innenseite RECHTS -->
+                        <div class="passport-inside-right">
+                            <div class="stamp-page">
+                                <div style="color: #666; font-size: 1.1rem; margin-bottom: 20px;">
+                                    ENTRY STAMPS
+                                </div>
+                                <div style="color: #999; font-size: 0.9rem; font-style: italic;">
+                                    Official entry stamps
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bindefalz -->
+                        <div class="page-spine"></div>
+
+                        <!-- Stempel CHINA -->
+                        <div class="passport-stamp">
+                            <div class="stamp-inner">
+                                <div class="stamp-country">CHINA</div>
+                                <div class="stamp-symbol">🐉</div>
+                                <div class="stamp-date">NOVEMBER 2024</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-          </div>
-          <div class="spacer-content">
-            <p class="spacer-text" id="spacerText5">Reise nach Kanada<br>6.500 km Entfernung</p>
-          </div>
         </div>
+    </section>
 
-        <!-- Kanada -->
-        <div class="travel-item">
-          <div class="country-card" data-country="kanada" data-distance="6500">
-            <div class="country-header">
-              <h3>Kanada</h3>
-              <div class="country-distance">6.500 km von Deutschland</div>
-              <p class="country-description">Weite Landschaften, unberührte Natur und die Freundlichkeit der Menschen in den Nationalparks. Wandern in den Rocky Mountains und Großstadtflair in Toronto.</p>
+    <!-- Kontakt -->
+    <section id="kontakt" class="section contact-section">
+        <div class="section-content">
+            <h2 class="section-title">Kontakt</h2>
+            <p class="section-description">Bei Fragen oder Interesse können Sie mich gerne kontaktieren</p>
+
+            <div class="contact-container">
+                <div class="contact-links">
+                    <a href="mailto:beispiel@email.com" class="contact-link">
+                        📧 E-Mail schreiben
+                    </a>
+                    <a href="#" class="contact-link">
+                        💼 LinkedIn Profil
+                    </a>
+                    <a href="#" class="contact-link">
+                        💻 GitHub Repositorys
+                    </a>
+                </div>
             </div>
-            <div class="country-gallery">
-              <img src="images/Canada_04.jpeg" alt="Rocky Mountains Kanada">
-              <img src="images/Canada_02.jpeg" alt="Toronto Skyline">
-              <img src="images/Canada_03.jpeg" alt="Niagarafälle">
-              <img src="images/Flugzeug_01.jpeg" alt="Kanada Seen">
-              <img src="images/Canada_05.jpeg" alt="Kanada Wildnis">
-              <img src="images/Canada_01.jpeg" alt="Kanada Städte">
-            </div>
-          </div>
         </div>
+    </section>
 
-        <!-- Spacer 6 nur mit Pass-Stempel -->
-        <div class="travel-spacer">
-          <div class="passport-stamp" id="stamp6">
-            <div class="stamp-inner">
-              <div class="stamp-country">KANADA</div>
-              <div class="stamp-symbol">🍁</div>
-              <div class="stamp-date">OKTOBER 2024</div>
-            </div>
-          </div>
-          <div class="spacer-content">
-            <p class="spacer-text" id="spacerText6">Reise nach China<br>7.800 km Entfernung</p>
-          </div>
-        </div>
-
-        <!-- China -->
-        <div class="travel-item">
-          <div class="country-card" data-country="china" data-distance="7800">
-            <div class="country-header">
-              <h3>China</h3>
-              <div class="country-distance">7.800 km von Deutschland</div>
-              <p class="country-description">Alte Traditionen treffen auf moderne Megastädte – eine Reise zwischen Vergangenheit und Zukunft. Die Große Mauer, Pandas und futuristische Skyline von Shanghai.</p>
-            </div>
-            <div class="country-gallery">
-              <img src="images/China_11.jpeg" alt="Chinesische Mauer">
-              <img src="images/China_13.jpeg" alt="Shanghai Skyline">
-              <img src="images/China_14.jpeg" alt="Pandas China">
-              <img src="images/China_01.jpeg" alt="China Tradition">
-              <img src="images/China_06.jpeg" alt="China Moderne">
-              <img src="images/China_03.jpeg" alt="China Natur">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Kontakt -->
-  <section id="kontakt" class="section contact-section">
-    <div class="section-content">
-      <h2 class="section-title">Kontakt</h2>
-      <p class="section-description">Bei Fragen oder Interesse können Sie mich gerne kontaktieren</p>
-      
-      <div class="contact-container">
-        <div class="contact-links">
-          <a href="mailto:beispiel@email.com" class="contact-link">
-            📧 E-Mail schreiben
-          </a>
-          <a href="#" class="contact-link">
-            💼 LinkedIn Profil
-          </a>
-          <a href="#" class="contact-link">
-            💻 GitHub Repositorys
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <script src="js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
+
 </html>
