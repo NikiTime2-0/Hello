@@ -139,248 +139,299 @@
   }
 }
 /* =====================
-   IPHONE / MOBILE OPTIMIERUNG
-   (AM ENDE DER CSS-DATEI HINZUFÜGEN)
+   IPHONE VERSION - VERTIKALE ANIMATION
+   (Pass klappt nach oben auf)
 ====================== */
 
 @media (max-width: 768px) {
-    /* Passport komplett anders auf Mobile */
+    /* Container für vertikale Animation */
     .passport-container {
-        width: 100% !important;
-        height: 300px !important;
-        margin: 0 auto !important;
-        transform: scale(0.9) !important;
-        transform-origin: center !important;
+        width: 280px !important;
+        height: 400px !important;
+        margin: 40px auto 20px !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
     }
     
-    /* Passport Cover und Innenseiten für Mobile */
-    .passport-cover,
+    /* Pass Cover - jetzt oben, klappt nach oben auf */
+    .passport-cover {
+        position: relative;
+        left: 0 !important;
+        width: 280px !important;
+        height: 180px !important; /* Kürzer für Handy */
+        border-radius: 15px 15px 8px 8px !important; /* Abgerundet oben */
+        border-right: none !important;
+        border-bottom: 15px solid #ffd600 !important; /* Goldener Rand jetzt unten */
+        transform-origin: bottom center !important; /* Drehpunkt unten */
+        box-shadow: 0 10px 25px rgba(0,0,0,0.3) !important;
+        margin-bottom: 0;
+        transform: translateX(0) !important;
+    }
+    
+    /* Cover öffnet nach OBEN */
+    .passport-cover.open {
+        transform: rotateX(-120deg) !important; /* Nach oben klappen */
+        opacity: 0.8 !important;
+    }
+    
+    /* Cover-Text anpassen für vertikale Ansicht */
+    .cover-title {
+        font-size: 2.2rem !important;
+        letter-spacing: 5px !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .cover-subtitle {
+        font-size: 1.1rem !important;
+        padding: 8px 20px !important;
+    }
+    
+    /* Innenseiten als STAPEL untereinander */
     .passport-inside-left,
     .passport-inside-right {
+        position: relative !important;
+        left: 0 !important;
         width: 280px !important;
-        height: 200px !important;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
+        height: 180px !important;
+        border-radius: 8px 8px 15px 15px !important; /* Abgerundet unten */
+        margin-top: 0;
+        opacity: 0;
+        transform: translateY(-20px) !important;
+        transition: all 0.6s ease 0.4s;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2) !important;
     }
     
-    /* Cover auf Mobile */
-    .passport-cover {
-        border-radius: 15px 8px 8px 15px !important;
-        border-right: 15px solid #ffd600 !important;
-    }
-    
-    .passport-cover.open {
-        transform: translateX(-50%) rotateY(-135deg) !important;
-    }
-    
-    /* Innenseiten auf Mobile */
+    /* Innenseite LINKS (erste nach Cover) */
     .passport-inside-left {
-        border-radius: 15px 0 0 15px !important;
-        padding: 20px !important;
+        z-index: 15;
+        background: linear-gradient(to bottom, #fff9e6, #f5e8c8) !important;
     }
     
+    /* Innenseite RECHTS (zweite, mit Stempel) */
     .passport-inside-right {
-        display: none !important; /* Auf Mobile nur eine Seite zeigen */
+        z-index: 10;
+        background: linear-gradient(to bottom, #f5e8c8, #fff9e6) !important;
+        transition-delay: 0.6s !important;
     }
     
-    /* Passport Info anpassen für kleinere Bildschirme */
+    /* Wenn Cover offen, Innenseiten einblenden */
+    .passport-cover.open ~ .passport-inside-left,
+    .passport-cover.open ~ .passport-inside-right {
+        opacity: 1;
+        transform: translateY(0) !important;
+    }
+    
+    /* Innenseite LINKS - Pass-Info kompakt */
     .passport-info-page {
-        padding: 15px !important;
+        padding: 20px !important;
+        transform: scale(0.9);
+        transform-origin: top center;
     }
     
     .passport-number {
         top: 10px !important;
-        left: 15px !important;
+        left: 20px !important;
         font-size: 1rem !important;
     }
     
     .passport-name {
         top: 35px !important;
-        left: 15px !important;
+        left: 20px !important;
         font-size: 1.1rem !important;
     }
     
     .passport-photo {
         top: 70px !important;
         left: 25px !important;
-        width: 70px !important;
-        height: 85px !important;
+        width: 65px !important;
+        height: 80px !important;
         font-size: 0.7rem !important;
     }
     
     .passport-details {
         top: 70px !important;
-        left: 110px !important;
-        font-size: 0.85rem !important;
+        left: 105px !important;
+        font-size: 0.8rem !important;
         line-height: 1.4 !important;
     }
     
     .detail-label {
-        width: 70px !important;
+        width: 65px !important;
+        font-size: 0.75rem !important;
     }
     
-    /* Stempel auf Mobile zentrieren */
+    /* Innenseite RECHTS - nur Stempelbereich */
+    .stamp-page {
+        border: 2px dashed rgba(13, 71, 161, 0.3) !important;
+        border-radius: 10px !important;
+        padding: 15px !important;
+        height: 90% !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    /* STEMPEL auf rechter Innenseite */
     .passport-stamp {
+        position: absolute !important;
         left: 50% !important;
-        top: 60% !important;
-        transform: translate(-50%, -50%) scale(0.8) !important;
+        top: 50% !important;
+        transform: translate(-50%, -50%) scale(0.9) !important;
+        z-index: 20;
+        transition: all 0.5s ease 0.8s !important;
     }
     
     .passport-cover.open ~ .passport-inside-right ~ .passport-stamp {
-        transform: translate(-50%, -50%) scale(0.8) !important;
+        opacity: 1 !important;
+        transform: translate(-50%, -50%) scale(0.9) !important;
     }
     
-    /* Stempel kleiner auf Mobile */
+    /* Stempel kleiner für Mobile */
     .stamp-inner {
-        width: 150px !important;
-        height: 300px !important;
-        padding: 20px !important;
+        width: 140px !important;
+        height: 280px !important;
+        padding: 15px !important;
+        animation: wackelnMobile 0.7s ease-in-out 1s 3 !important;
+    }
+    
+    @keyframes wackelnMobile {
+        0%, 100% { transform: rotate(5deg) translateY(0); }
+        25% { transform: rotate(7deg) translateY(2px); }
+        50% { transform: rotate(3deg) translateY(-2px); }
+        75% { transform: rotate(6deg) translateY(1px); }
     }
     
     .stamp-country {
-        font-size: 1.3rem !important;
+        font-size: 1.2rem !important;
     }
     
     .stamp-symbol {
-        font-size: 2.5rem !important;
+        font-size: 2.2rem !important;
+        margin: 10px 0 !important;
     }
     
     .stamp-date {
-        font-size: 0.9rem !important;
+        font-size: 0.85rem !important;
     }
     
-    /* Bindefalz verstecken auf Mobile */
+    /* Bindefalz zwischen den Seiten (horizontaler Strich) */
     .page-spine {
-        display: none !important;
+        position: absolute !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        top: 180px !important; /* Zwischen Cover und erster Innenseite */
+        width: 250px !important;
+        height: 3px !important;
+        background: linear-gradient(to right, #8b7355, #6b5a45) !important;
+        z-index: 25;
+        opacity: 0;
+        transition: opacity 0.5s ease 0.3s;
     }
     
-    /* Cover Title kleiner */
-    .cover-title {
-        font-size: 2rem !important;
-        letter-spacing: 4px !important;
+    .passport-cover.open ~ .page-spine {
+        opacity: 1;
     }
     
-    .cover-subtitle {
-        font-size: 1rem !important;
-        padding: 8px 20px !important;
+    /* Zweiter Bindefalz zwischen Innenseiten */
+    .page-spine::after {
+        content: '';
+        position: absolute;
+        top: 180px; /* Abstand zur nächsten Seite */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 250px;
+        height: 3px;
+        background: linear-gradient(to right, #8b7355, #6b5a45);
+    }
+    
+    /* Touch-Optimierung */
+    .passport-cover {
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    /* Animationen schneller auf Mobile */
+    .passport-cover,
+    .passport-inside-left,
+    .passport-inside-right,
+    .passport-stamp {
+        transition-duration: 0.5s !important;
+    }
+    
+    .passport-cover.open {
+        transition-duration: 0.7s !important;
     }
 }
 
-/* iPhone SE / Kleine Smartphones */
+/* Sehr kleine Smartphones (iPhone SE) */
 @media (max-width: 375px) {
     .passport-container {
-        transform: scale(0.8) !important;
-    }
-    
-    .passport-cover,
-    .passport-inside-left {
-        width: 250px !important;
-        height: 180px !important;
-    }
-    
-    .passport-photo {
-        width: 60px !important;
-        height: 75px !important;
-        top: 60px !important;
-        left: 20px !important;
-    }
-    
-    .passport-details {
-        top: 60px !important;
-        left: 95px !important;
-        font-size: 0.8rem !important;
-    }
-    
-    .stamp-inner {
-        width: 130px !important;
-        height: 260px !important;
-        padding: 15px !important;
-    }
-    
-    .stamp-country {
-        font-size: 1.1rem !important;
-    }
-}
-
-/* Tablet Optimierung */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .passport-container {
-        width: 700px !important;
-        height: 350px !important;
+        width: 260px !important;
+        height: 380px !important;
+        transform: scale(0.95) !important;
     }
     
     .passport-cover,
     .passport-inside-left,
     .passport-inside-right {
-        width: 250px !important;
-        height: 350px !important;
+        width: 260px !important;
+        height: 170px !important;
     }
     
-    .passport-cover,
-    .passport-inside-left {
-        left: 175px !important;
+    .cover-title {
+        font-size: 2rem !important;
+    }
+    
+    .stamp-inner {
+        width: 130px !important;
+        height: 260px !important;
+    }
+}
+
+/* Landscape Mode - hier normale PC-Version zeigen */
+@media (max-width: 768px) and (orientation: landscape) {
+    .passport-container {
+        width: 600px !important;
+        height: 250px !important;
+        flex-direction: row !important;
+    }
+    
+    .passport-cover {
+        width: 200px !important;
+        height: 250px !important;
+        border-radius: 15px 8px 8px 15px !important;
+        border-right: 15px solid #ffd600 !important;
+        border-bottom: none !important;
+        transform-origin: left center !important;
+    }
+    
+    .passport-cover.open {
+        transform: rotateY(-120deg) !important;
+    }
+    
+    .passport-inside-left,
+    .passport-inside-right {
+        width: 200px !important;
+        height: 250px !important;
+        position: absolute !important;
+        left: 200px !important;
+        transform: translateX(-20px) !important;
     }
     
     .passport-inside-right {
-        left: 425px !important;
+        left: 400px !important;
     }
     
-    .passport-stamp {
-        left: 550px !important;
-    }
-}
-
-/* Touch-Optimierung für Mobile */
-@media (hover: none) and (pointer: coarse) {
-    /* Größere Klickflächen für Touch */
-    .passport-cover {
-        cursor: default !important;
-    }
-    
-    /* Touch-Friendly Animation */
-    .passport-cover.open {
-        transition: 
-            transform 1s cubic-bezier(0.34, 1.56, 0.64, 1),
-            opacity 0.3s ease 0.7s !important;
-    }
-    
-    /* Keine Hover-Effekte auf Touch */
-    .passport-cover:hover {
-        transform: none !important;
-    }
-    
-    /* Größere Touch-Targets für Navigation */
-    .nav-links a {
-        padding: 10px 5px !important;
-    }
-}
-
-/* Landscape Mode für iPhone */
-@media (max-width: 768px) and (orientation: landscape) {
-    .passport-container {
-        height: 200px !important;
-        transform: scale(0.7) !important;
-    }
-    
-    .passport-cover,
-    .passport-inside-left {
-        height: 160px !important;
-    }
-    
-    .passport-photo {
-        top: 40px !important;
-        left: 20px !important;
-        width: 50px !important;
-        height: 65px !important;
-    }
-    
-    .passport-details {
-        top: 40px !important;
-        left: 85px !important;
-        font-size: 0.75rem !important;
-    }
-    
-    .passport-stamp {
+    /* Zurück zur horizontalen Animation im Landscape */
+    .page-spine {
+        display: block !important;
+        left: 200px !important;
         top: 50% !important;
+        transform: translateY(-50%) !important;
+        width: 5px !important;
+        height: 200px !important;
     }
 }

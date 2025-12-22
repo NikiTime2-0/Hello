@@ -294,25 +294,53 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // =====================
-// MOBILE OPTIMIERUNG FÜR PASSPORT
+// MOBILE VERTIKALE ANIMATION
 // =====================
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Prüfen ob Mobile
+    // Mobile Detection
     const isMobile = window.innerWidth <= 768;
     
-    // Touch-Events für Mobile
     if (isMobile) {
+        // Vertikale Animation für Mobile
         const passportCovers = document.querySelectorAll('.passport-cover');
         
         passportCovers.forEach(cover => {
-            // Touch-Event statt Click für bessere Performance
+            // Touch Event mit besserem Feedback
             cover.addEventListener('touchstart', function(e) {
                 e.preventDefault();
-                this.classList.toggle('open');
+                // Haptic Feedback (falls unterstützt)
+                if (navigator.vibrate) {
+                    navigator.vibrate(10);
+                }
+                
+                const isOpen = this.classList.contains('open');
+                
+                if (isOpen) {
+                    // Schließen: Stempel → rechte Seite → linke Seite → Cover
+                    const stamp = this.closest('.passport-container').querySelector('.passport-stamp');
+                    const rightPage = this.closest('.passport-container').querySelector('.passport-inside-right');
+                    const leftPage = this.closest('.passport-container').querySelector('.passport-inside-left');
+                    
+                    if (stamp) stamp.style.transition = 'all 0.2s ease';
+                    if (rightPage) rightPage.style.transition = 'all 0.3s ease 0.1s';
+                    if (leftPage) leftPage.style.transition = 'all 0.4s ease 0.2s';
+                    
+                    this.classList.remove('open');
+                    
+                    // Transitions zurücksetzen
+                    setTimeout(() => {
+                        if (stamp) stamp.style.transition = '';
+                        if (rightPage) rightPage.style.transition = '';
+                        if (leftPage) leftPage.style.transition = '';
+                    }, 800);
+                } else {
+                    // Öffnen: Cover → linke Seite → rechte Seite → Stempel
+                    this.classList.add('open');
+                }
             }, { passive: false });
             
-            // Auch Click für Desktop-Kompatibilität
+            // Fallback für Click (Tablet/Desktop)
             cover.addEventListener('click', function(e) {
                 if (!isMobile) {
                     this.classList.toggle('open');
@@ -320,24 +348,30 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
         
-        // Mobile Performance Optimierung
+        // Performance Optimierung für Mobile
         const style = document.createElement('style');
         style.textContent = `
             .passport-container * {
                 will-change: transform, opacity;
-                backface-visibility: hidden;
+                -webkit-font-smoothing: antialiased;
+            }
+            
+            /* Smooth Scrolling für Mobile */
+            .travel-spacer {
+                scroll-snap-align: start;
             }
         `;
         document.head.appendChild(style);
     }
     
-    // Responsive Resize Handler
-    window.addEventListener('resize', function() {
-        const currentIsMobile = window.innerWidth <= 768;
-        
-        if (currentIsMobile !== isMobile) {
-            // Seite neu laden bei Größenänderung für korrekte Anzeige
-            // location.reload();
-        }
+    // Orientation Change Handling
+    window.addEventListener('orientationchange', function() {
+        // Kurze Verzögerung für korrekte Größenberechnung
+        setTimeout(() => {
+            // Alle Passports zurücksetzen bei Orientierungswechsel
+            document.querySelectorAll('.passport-cover.open').forEach(cover => {
+                cover.classList.remove('open');
+            });
+        }, 300);
     });
 });
