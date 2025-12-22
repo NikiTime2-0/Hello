@@ -102,15 +102,53 @@ document.addEventListener('DOMContentLoaded', function() {
     // Reset previous animations
     stamp.classList.remove('visible', 'appearing');
     if (spacerText) spacerText.classList.remove('visible');
-    
-    // Start animations with delays
+
+    // Determine related elements that animate (cover / pages)
+    const container = stamp.closest('.passport-container') || stamp.closest('.travel-spacer');
+    const cover = container ? container.querySelector('.passport-cover') : null;
+    const rightPage = container ? container.querySelector('.passport-inside-right') : null;
+    const leftPage = container ? container.querySelector('.passport-inside-left') : null;
+
+    // Helper: parse CSS time strings to milliseconds
+    function parseTimeToMs(timeStr) {
+      if (!timeStr) return 0;
+      // handle comma-separated lists, take max
+      return timeStr.split(',').map(s => s.trim()).map(s => {
+        if (s.endsWith('ms')) return parseFloat(s);
+        if (s.endsWith('s')) return parseFloat(s) * 1000;
+        return parseFloat(s) || 0;
+      }).reduce((a, b) => Math.max(a, b), 0);
+    }
+
+    // Helper: compute max total time (delay + duration) for animations and transitions on an element
+    function getMaxElementAnimTime(el) {
+      if (!el) return 0;
+      const cs = window.getComputedStyle(el);
+      const animDelay = parseTimeToMs(cs.animationDelay);
+      const animDur = parseTimeToMs(cs.animationDuration);
+      const transDelay = parseTimeToMs(cs.transitionDelay);
+      const transDur = parseTimeToMs(cs.transitionDuration);
+      return Math.max(animDelay + animDur, transDelay + transDur);
+    }
+
+    // Compute the longest running animation/transition among related elements
+    const maxTimes = [cover, rightPage, leftPage].map(getMaxElementAnimTime);
+    const longest = maxTimes.reduce((a, b) => Math.max(a, b), 0);
+
+    // If there is a visible element animation, delay the stamp until it finishes plus a small buffer
+    const buffer = 60; // ms
+    const initialDelay = longest > 20 ? longest + buffer : 300;
+
+    // Show stamp after computed delay
     setTimeout(() => {
       stamp.classList.add('visible', 'appearing');
-    }, 300);
-    
+    }, initialDelay);
+
+    // Spacer text should appear shortly after the stamp animation completes
+    const textDelay = initialDelay + 900;
     setTimeout(() => {
       if (spacerText) spacerText.classList.add('visible');
-    }, 1200);
+    }, textDelay);
   }
   
   // Show arrival notice

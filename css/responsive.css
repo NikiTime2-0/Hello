@@ -138,9 +138,7 @@
     grid-template-columns: repeat(3, 1fr);
   }
 }
-/* =====================
-   MOBILE VERSION - KORRIGIERTER STEMPEL
-====================== */
+
 /* =====================
    MOBILE VERSION - KOMPLETTE CSS-ONLY LÖSUNG
 ====================== */
@@ -376,40 +374,43 @@
         padding: 25px !important;
     }
     
-    /* OPTIMIERTER STEMPEL - HÖHER POSITIONIERT */
+    /* VERGRÖSSERTER UND VERZÖGERTER STEMPEL */
     .passport-stamp {
         position: absolute !important;
         left: 50% !important;
-        top: 455px !important; /* HÖHERE POSITION */
+        top: 340px !important;
         transform: translateX(-50%) scale(0) !important;
-        z-index: 30;
+        z-index: 35;
         opacity: 0;
-        width: 160px !important;
-        height: 240px !important;
+        width: 180px !important;  /* Breite erhöht */
+        height: 270px !important; /* Höhe erhöht */
+        pointer-events: none;
     }
     
+    /* Stempel erscheint erst nach allen Passport-Animationen */
     .passport-cover.open ~ .passport-inside-right ~ .passport-stamp {
         opacity: 1 !important;
         transform: translateX(-50%) scale(1) rotate(5deg) !important;
-        top: 455px !important; /* HÖHERE POSITION */
-        transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 1.2s !important;
+        top: 350px !important;
+        /* Verzögerung erhöht, damit Passport-Animationen zuerst fertig sind */
+        transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 4.5s !important;
     }
     
-    /* OPTIMIERTER STEMPEL - ENGERE ZEILENABSTÄNDE */
+    /* VERGRÖSSERTER STEMPEL-INHALT */
     .stamp-inner {
-        width: 160px !important;
-        height: 240px !important;
-        padding: 22px 15px 12px 15px !important; /* Mehr oben, weniger unten */
+        width: 180px !important;   /* Entspricht der erhöhten Breite */
+        height: 270px !important;  /* Entspricht der erhöhten Höhe */
+        padding: 28px 18px 18px 18px !important; /* Mehr Platz für höheren Stempel */
         display: flex !important;
         flex-direction: column !important;
         justify-content: flex-start !important;
-        animation: stampAppearFinal 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 1.3s forwards !important;
-        border: 5px dashed #c41e3a !important;
-        border-radius: 20px !important;
+        animation: stampAppearFinal 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 1.6s forwards !important;
+        border: 6px dashed #c41e3a !important;
+        border-radius: 22px !important;
         background: rgba(255, 255, 255, 0.98) !important;
         box-shadow: 
-            0 15px 40px rgba(0, 0, 0, 0.3),
-            inset 0 0 20px rgba(196, 30, 58, 0.15) !important;
+            0 18px 45px rgba(0, 0, 0, 0.35),
+            inset 0 0 25px rgba(196, 30, 58, 0.15) !important;
         transform: scale(0);
     }
     
@@ -419,11 +420,11 @@
             opacity: 0; 
         }
         60% { 
-            transform: scale(1.1) rotate(8deg); 
+            transform: scale(1.15) rotate(8deg); 
             opacity: 1; 
         }
         80% { 
-            transform: scale(0.98) rotate(-3deg); 
+            transform: scale(0.95) rotate(-3deg); 
         }
         100% { 
             transform: scale(1) rotate(5deg); 
@@ -431,42 +432,43 @@
         }
     }
     
+    /* VERGRÖSSERTE TEXT-ELEMENTE IM STEMPEL */
     .stamp-country {
-        font-size: 1.3rem !important;
+        font-size: 1.5rem !important;  /* Vergrößert */
         font-weight: bold !important;
-        margin-bottom: 8px !important; /* Weniger Abstand */
-        letter-spacing: 2px !important;
+        margin-bottom: 10px !important;
+        letter-spacing: 2.5px !important;
         text-align: center;
-        line-height: 1.1 !important; /* ENGERER ZEILENABSTAND */
+        line-height: 1.15 !important;
     }
     
     .stamp-symbol {
-        font-size: 2.8rem !important;
-        margin: 12px 0 8px 0 !important; /* Weniger Abstand, besonders nach unten */
+        font-size: 3.2rem !important;  /* Vergrößert */
+        margin: 15px 0 12px 0 !important;
         text-align: center;
-        filter: drop-shadow(0 3px 6px rgba(0,0,0,0.2));
-        height: 55px; /* Feste Höhe */
+        filter: drop-shadow(0 4px 8px rgba(0,0,0,0.25));
+        height: 65px; /* Höhere feste Höhe */
         display: flex;
         align-items: center;
         justify-content: center;
     }
     
-    /* ENGERE DATUMSZEILEN - CSS-ONLY LÖSUNG */
+    /* VERGRÖSSERTES DATUM */
     .stamp-date {
-        font-size: 0.95rem !important;
-        line-height: 1.1 !important; /* SEHR ENGER ZEILENABSTAND */
-        padding-top: 6px !important; /* Weniger Padding */
+        font-size: 1.05rem !important;  /* Vergrößert */
+        line-height: 1.15 !important;
+        padding-top: 8px !important;
         margin-top: 0 !important;
         text-align: center;
         font-weight: bold;
-        border-top: 2px dashed #ddd !important; /* Dünnere Linie */
+        border-top: 2.5px dashed #ddd !important;
     }
     
-    /* Für <br> tags in .stamp-date - minimaler Abstand */
+    /* Für <br> tags in .stamp-date */
     .stamp-date br {
         display: block;
         content: "";
-        margin-top: 1px !important; /* MINIMALER ABSTAND zwischen Datumszeilen */
+        margin-top: 2px !important;
         line-height: 0.1 !important;
     }
     
