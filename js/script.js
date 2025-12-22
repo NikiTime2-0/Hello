@@ -292,3 +292,52 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+// =====================
+// MOBILE OPTIMIERUNG FÜR PASSPORT
+// =====================
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Prüfen ob Mobile
+    const isMobile = window.innerWidth <= 768;
+    
+    // Touch-Events für Mobile
+    if (isMobile) {
+        const passportCovers = document.querySelectorAll('.passport-cover');
+        
+        passportCovers.forEach(cover => {
+            // Touch-Event statt Click für bessere Performance
+            cover.addEventListener('touchstart', function(e) {
+                e.preventDefault();
+                this.classList.toggle('open');
+            }, { passive: false });
+            
+            // Auch Click für Desktop-Kompatibilität
+            cover.addEventListener('click', function(e) {
+                if (!isMobile) {
+                    this.classList.toggle('open');
+                }
+            });
+        });
+        
+        // Mobile Performance Optimierung
+        const style = document.createElement('style');
+        style.textContent = `
+            .passport-container * {
+                will-change: transform, opacity;
+                backface-visibility: hidden;
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    // Responsive Resize Handler
+    window.addEventListener('resize', function() {
+        const currentIsMobile = window.innerWidth <= 768;
+        
+        if (currentIsMobile !== isMobile) {
+            // Seite neu laden bei Größenänderung für korrekte Anzeige
+            // location.reload();
+        }
+    });
+});
