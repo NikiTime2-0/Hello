@@ -1627,9 +1627,9 @@ img {
     
     /* VERGRÖSSERTE TEXT-ELEMENTE IM STEMPEL */
     .stamp-country {
-        font-size: 1.6rem !important;
+        font-size: 1.3rem !important;
         font-weight: bold !important;
-        margin-bottom: 15px !important;
+        margin-bottom: 10px !important;
         letter-spacing: 2.5px !important;
         text-align: center;
         line-height: 1.2 !important;
@@ -1638,8 +1638,8 @@ img {
     }
     
     .stamp-symbol {
-        font-size: 3.5rem !important;
-        margin: 20px 0 15px 0 !important;
+        font-size: 2.5rem !important;
+        margin: 10px 0 10px 0 !important;
         text-align: center;
         filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
         height: 70px;
@@ -1651,9 +1651,9 @@ img {
     /* VERGRÖSSERTES DATUM */
     .stamp-date {
         font-size: 1.1rem !important;
-        line-height: 1.4 !important;
-        padding-top: 12px !important;
-        margin-top: 10px !important;
+        line-height: 0.2 !important;
+        padding-top: 8px !important;
+        margin-top: 8px !important;
         text-align: center;
         font-weight: bold;
         border-top: 3px dashed #ddd !important;

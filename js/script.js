@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, textDelay);
   }
   
-  // Show arrival notice
+  /* Show arrival notice
   function showArrivalNotice(country, distance) {
     arrivalTitle.textContent = `📍 ${countryNames[country]} erreicht`;
     arrivalDistance.textContent = `Entfernung von Deutschland: ${distance} km`;
@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function() {
       arrivalNotice.classList.remove('show');
     }, 3000);
   }
-  
+  */
   // Mobile menu
   const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
   const navLinks = document.querySelector('.nav-links');
