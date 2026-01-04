@@ -1,64 +1,46 @@
-import busboy from "busboy";
+import Busboy from "busboy";
 import nodemailer from "nodemailer";
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "Content-Type",
-  "Access-Control-Allow-Methods": "POST, OPTIONS"
-};
-
 export const handler = async (event) => {
-
-  // CORS Preflight
-  if (event.httpMethod === "OPTIONS") {
-    return {
-      statusCode: 200,
-      headers: corsHeaders
-    };
-  }
-
   if (event.httpMethod !== "POST") {
-    return {
-      statusCode: 405,
-      headers: corsHeaders
-    };
+    return { statusCode: 405, body: "Method Not Allowed" };
   }
 
   return new Promise((resolve) => {
-
-    const bb = busboy({
+    const busboy = new Busboy({
       headers: event.headers,
-      limits: { fileSize: 5 * 1024 * 1024 }
+      limits: { fileSize: 5 * 1024 * 1024 } // 5 MB
     });
 
     let fileBuffer = [];
     let fileName = "";
     let mimeType = "";
 
-    bb.on("file", (name, file, info) => {
+    busboy.on("file", (_, file, info) => {
       fileName = info.filename;
       mimeType = info.mimeType;
 
       file.on("data", (data) => fileBuffer.push(data));
     });
 
-    bb.on("finish", async () => {
+    busboy.on("finish", async () => {
       try {
         const buffer = Buffer.concat(fileBuffer);
 
+        // Nodemailer mit Mailgun
         const transporter = nodemailer.createTransport({
-          host: process.env.SMTP_HOST,
+          host: process.env.SMTP_HOST || "smtp.mailgun.org",
           port: 587,
-          secure: false,
+          secure: false, // STARTTLS
           auth: {
-            user: process.env.SMTP_USER,
-            pass: process.env.SMTP_PASS
+            user: process.env.SMTP_USER || "test@sandbox7a2774f2ba4f4177923607fa4fe95442.mailgun.org",
+            pass: process.env.SMTP_PASS || "469b8b482474d36b36d78edf6fcd29bc-ac8ca900-5492e346"
           }
         });
 
         await transporter.sendMail({
-          from: process.env.MAIL_FROM,
-          to: process.env.MAIL_TO,
+          from: process.env.MAIL_FROM || "test@sandbox7a2774f2ba4f4177923607fa4fe95442.mailgun.org",
+          to: process.env.MAIL_TO || "deine.empfaenger@mail.de",
           subject: "Upload von GitHub Page",
           text: "Ein Bild wurde hochgeladen.",
           attachments: [{
@@ -68,22 +50,16 @@ export const handler = async (event) => {
           }]
         });
 
-        resolve({
-          statusCode: 200,
-          headers: corsHeaders,
-          body: "OK"
-        });
+        resolve({ statusCode: 200, body: "OK" });
 
       } catch (err) {
         console.error(err);
-        resolve({
-          statusCode: 500,
-          headers: corsHeaders,
-          body: "Mail error"
-        });
+        resolve({ statusCode: 500, body: "Mail error" });
       }
     });
 
-    bb.end(Buffer.from(event.body, "base64"));
+    // Busboy erwartet ein Buffer-Objekt
+    const bodyBuffer = Buffer.from(event.body, event.isBase64Encoded ? "base64" : "utf8");
+    busboy.end(bodyBuffer);
   });
 };
