@@ -10,43 +10,7 @@
 </head>
 
 <body>
-    <h2>Test Upload</h2>
-
-<form id="uploadForm">
-  <input type="file" name="file" accept="image/*" required>
-  <button type="submit">Bild senden</button>
-</form>
-
-<p id="status"></p>
-
-<script>
-  document.getElementById("uploadForm").addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const status = document.getElementById("status");
-    const formData = new FormData(e.target);
-
-    status.textContent = "Sende …";
-
-    try {
-      const response = await fetch(
-        "https://thriving-syrniki-11f3b5.netlify.app/.netlify/functions/upload",
-        {
-          method: "POST",
-          body: formData
-        }
-      );
-
-      if (response.ok) {
-        status.textContent = "Upload erfolgreich – Mail wurde versendet.";
-      } else {
-        status.textContent = "Fehler beim Upload.";
-      }
-    } catch (err) {
-      status.textContent = "Netzwerkfehler.";
-    }
-  });
-</script>
+    
 
     <!-- Navigation hahahahahahaah-->
     <header>
