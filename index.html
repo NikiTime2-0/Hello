@@ -93,7 +93,7 @@
     <section id="auto" class="section auto-section">
         <div class="section-content">
             <h2 class="section-title">Welcome to Audi Airlines</h2>
-            <p class="section-description">🤍🤍 </p>
+            <p class="section-description">🤍🤍🤍🤍</p>
 
             <div class="car-grid">
                 <div class="car-card">
@@ -138,44 +138,7 @@
             </div>
         </div>
     </section>
-    <h2>Test Upload</h2>
-
-<form id="uploadForm">
-  <input type="file" name="file" accept="image/*" required>
-  <button type="submit">Bild senden</button>
-</form>
-
-<p id="status"></p>
-
-<script>
-  document.getElementById("uploadForm").addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const status = document.getElementById("status");
-    const formData = new FormData(e.target);
-
-    status.textContent = "Sende …";
-
-    try {
-      const response = await fetch(
-        "https://thriving-syrniki-11f3b5.netlify.app/.netlify/functions/upload",
-        {
-          method: "POST",
-          body: formData
-        }
-      );
-
-      if (response.ok) {
-        status.textContent = "Upload erfolgreich – Mail wurde versendet.";
-      } else {
-        status.textContent = "Fehler beim Upload.";
-      }
-    } catch (err) {
-      status.textContent = "Netzwerkfehler.";
-    }
-  });
-</script>
-
+    
     <!-- Musik -->
     <section id="musik" class="section music-section">
         <div class="section-content">
