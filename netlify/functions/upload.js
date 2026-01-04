@@ -1,33 +1,51 @@
-import Busboy from "busboy";
+import busboy from "busboy";
 import nodemailer from "nodemailer";
 
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Headers": "Content-Type",
+  "Access-Control-Allow-Methods": "POST, OPTIONS"
+};
+
 export const handler = async (event) => {
+
+  // CORS Preflight
+  if (event.httpMethod === "OPTIONS") {
+    return {
+      statusCode: 200,
+      headers: corsHeaders
+    };
+  }
+
   if (event.httpMethod !== "POST") {
-    return { statusCode: 405 };
+    return {
+      statusCode: 405,
+      headers: corsHeaders
+    };
   }
 
   return new Promise((resolve) => {
-    const busboy = new Busboy({
+
+    const bb = busboy({
       headers: event.headers,
-      limits: { fileSize: 5 * 1024 * 1024 } // 5 MB
+      limits: { fileSize: 5 * 1024 * 1024 }
     });
 
     let fileBuffer = [];
     let fileName = "";
     let mimeType = "";
 
-    busboy.on("file", (_, file, info) => {
+    bb.on("file", (name, file, info) => {
       fileName = info.filename;
       mimeType = info.mimeType;
 
       file.on("data", (data) => fileBuffer.push(data));
     });
 
-    busboy.on("finish", async () => {
+    bb.on("finish", async () => {
       try {
         const buffer = Buffer.concat(fileBuffer);
 
-        // Mail-Transport
         const transporter = nodemailer.createTransport({
           host: process.env.SMTP_HOST,
           port: 587,
@@ -50,14 +68,22 @@ export const handler = async (event) => {
           }]
         });
 
-        resolve({ statusCode: 200, body: "OK" });
+        resolve({
+          statusCode: 200,
+          headers: corsHeaders,
+          body: "OK"
+        });
 
       } catch (err) {
-        resolve({ statusCode: 500, body: "Mail error" });
+        console.error(err);
+        resolve({
+          statusCode: 500,
+          headers: corsHeaders,
+          body: "Mail error"
+        });
       }
     });
 
-    busboy.end(Buffer.from(event.body, "base64"));
+    bb.end(Buffer.from(event.body, "base64"));
   });
 };
-
