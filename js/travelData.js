@@ -96,48 +96,50 @@ function generateTravelSection() {
                         <div class="cover-subtitle">${country.passportSubtitle || 'EUROPEAN UNION'}</div>
                     </div>
                     
-                    <div class="passport-inside-left">
-                        <div class="passport-info-page">
-                            <div class="passport-number">T30922A9</div>
-                            <div class="passport-name">Passport</div>
-                            <div class="passport-photo">PASSPORT<br>PHOTO</div>
-                            <div class="passport-details">
-                                <div class="detail-line">
-                                    <span class="detail-label">Code:</span> GER
-                                </div>
-                                <div class="detail-line">
-                                    <span class="detail-label">Passport No:</span> L9TC5DNG
-                                </div>
-                                <div class="detail-line">
-                                    <span class="detail-label">Surname:</span> Barber
-                                </div>
-                                <div class="detail-line">
-                                    <span class="detail-label">Given names:</span> Niklas
+                    <div class="passport-main-inside">
+                        <div class="passport-inside-left">
+                            <div class="passport-info-page">
+                                <div class="passport-number">T30922A9</div>
+                                <div class="passport-name">Passport</div>
+                                <div class="passport-photo">PASSPORT<br>PHOTO</div>
+                                <div class="passport-details">
+                                    <div class="detail-line">
+                                        <span class="detail-label">Code:</span> GER
+                                    </div>
+                                    <div class="detail-line">
+                                        <span class="detail-label">Passport No:</span> L9TC5DNG
+                                    </div>
+                                    <div class="detail-line">
+                                        <span class="detail-label">Surname:</span> Barber
+                                    </div>
+                                    <div class="detail-line">
+                                        <span class="detail-label">Given names:</span> Niklas
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="passport-inside-right">
-                        <div class="stamp-page">
-                            <div style="color: #666; font-size: 1.1rem; margin-bottom: 20px;">
-                                ENTRY STAMPS
+                        
+                        <div class="passport-inside-right">
+                            <div class="stamp-page">
+                                <div style="color: #666; font-size: 1.1rem; margin-bottom: 20px;">
+                                    ENTRY STAMPS
+                                </div>
+                                <div style="color: #999; font-size: 0.9rem; font-style: italic;">
+                                    Official entry stamps
+                                </div>
                             </div>
-                            <div style="color: #999; font-size: 0.9rem; font-style: italic;">
-                                Official entry stamps
+                        </div>
+                        
+                        <div class="passport-stamp">
+                            <div class="stamp-inner">
+                                <div class="stamp-country">${country.title.toUpperCase()}</div>
+                                <div class="stamp-symbol">${country.stampSymbol}</div>
+                                ${country.stampDates.map(date => `<div class="stamp-date">${date}</div>`).join('')}
                             </div>
                         </div>
                     </div>
                     
                     <div class="page-spine"></div>
-                    
-                    <div class="passport-stamp">
-                        <div class="stamp-inner">
-                            <div class="stamp-country">${country.title.toUpperCase()}</div>
-                            <div class="stamp-symbol">${country.stampSymbol}</div>
-                            ${country.stampDates.map(date => `<div class="stamp-date">${date}</div>`).join('')}
-                        </div>
-                    </div>
                 </div>
             </div>
         `;

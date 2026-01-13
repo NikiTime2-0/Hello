@@ -128,6 +128,16 @@
             <h2 class="section-title">Kontakt</h2>
             <p class="section-description">Bei Fragen oder Interesse können Sie mich gerne kontaktieren</p>
             <div class="contact-container">
+                <div class="upload-card">
+                    <h2>Nicht fertig!</h2>
+                    <h3>Bild hochladen</h3>
+                    <p>JPG oder PNG, max. 50MB.</p>
+                    <form id="uploadForm">
+                        <input id="uploadFile" type="file" accept="image/jpeg,image/png" />
+                        <button type="submit">Hochladen</button>
+                        <div id="uploadStatus" class="upload-status" aria-live="polite"></div>
+                    </form>
+                </div>
                 <div class="contact-links">
                     <a href="mailto:niklas-barber@hotmail.de" class="contact-link">📧 E-Mail schreiben</a>
                     <a href="#" class="contact-link">💼 LinkedIn Profil</a>

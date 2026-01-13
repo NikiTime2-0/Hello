@@ -1,3 +1,34 @@
+let passportObserver = null;
+
+function observeTravelSpacers() {
+    if (!passportObserver) return;
+    document.querySelectorAll('.travel-spacer').forEach(spacer => {
+        passportObserver.observe(spacer);
+    });
+}
+
+// Passport Animation - Scroll-basiert, bleibt offen
+function setupPassportAnimations() {
+    if (!passportObserver) {
+        passportObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.intersectionRatio > 0.6) {
+                    const passport = entry.target.querySelector('.passport-cover');
+                    if (passport) {
+                        passport.classList.add('open');
+                    }
+                }
+            });
+        }, {
+            threshold: 0.6,
+            rootMargin: '0px 0px -80px 0px'
+        });
+    }
+    observeTravelSpacers();
+}
+
+window.setupPassportAnimations = setupPassportAnimations;
+
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile Menu
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
@@ -50,274 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Passport Animation - KORRIGIERTE VERSION
-    function setupPassportAnimations() {
-        document.querySelectorAll('.passport-cover').forEach(cover => {
-            // Remove existing listeners to avoid duplicates
-            cover.removeEventListener('click', handlePassportClick);
-            cover.addEventListener('click', handlePassportClick);
-        });
-    }
-    
-    function handlePassportClick(e) {
-        e.stopPropagation();
-        const cover = e.currentTarget;
-        const isMobile = window.innerWidth <= 768;
-        
-        if (isMobile) {
-            handleMobilePassportClick(cover);
-        } else {
-            handleDesktopPassportClick(cover);
-        }
-    }
-    
-    // NEUE verbesserte Mobile-Handling
-    function handleMobilePassportClick(cover) {
-        const isOpen = cover.classList.contains('open');
-        const container = cover.closest('.passport-container');
-        const stamp = container.querySelector('.passport-stamp');
-        const leftPage = container.querySelector('.passport-inside-left');
-        const rightPage = container.querySelector('.passport-inside-right');
-        
-        if (!isOpen) {
-            // Öffnen
-            cover.classList.add('open');
-            
-            // Innenseiten vorbereiten
-            if (leftPage) {
-                leftPage.style.transition = 'all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s';
-                leftPage.style.opacity = '1';
-                leftPage.style.transform = 'translateX(-50%) translateY(0)';
-            }
-            
-            if (rightPage) {
-                rightPage.style.transition = 'all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s';
-                rightPage.style.opacity = '1';
-                rightPage.style.transform = 'translateX(-50%) translateY(220px)';
-            }
-            
-            // Stempel nach Verzögerung anzeigen
-            setTimeout(() => {
-                if (stamp) {
-                    stamp.style.transition = 'all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s';
-                    stamp.style.opacity = '1';
-                    stamp.style.transform = 'translateX(-50%) scale(1) rotate(5deg)';
-                    stamp.style.top = '330px';
-                }
-            }, 1200);
-            
-            // Auto-close nach 5 Sekunden
-            setTimeout(() => {
-                if (cover.classList.contains('open')) {
-                    handleMobilePassportClose(cover);
-                }
-            }, 5000);
-        } else {
-            // Schließen
-            handleMobilePassportClose(cover);
-        }
-    }
-    
-    function handleMobilePassportClose(cover) {
-        const container = cover.closest('.passport-container');
-        const stamp = container.querySelector('.passport-stamp');
-        const leftPage = container.querySelector('.passport-inside-left');
-        const rightPage = container.querySelector('.passport-inside-right');
-        
-        // Stempel zuerst verstecken
-        if (stamp) {
-            stamp.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
-            stamp.style.opacity = '0';
-            stamp.style.transform = 'translateX(-50%) scale(0)';
-        }
-        
-        // Innenseiten verstecken
-        if (leftPage) {
-            leftPage.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.1s';
-            leftPage.style.opacity = '0';
-            leftPage.style.transform = 'translateX(-50%) translateY(-20px)';
-        }
-        
-        if (rightPage) {
-            rightPage.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0s';
-            rightPage.style.opacity = '0';
-            rightPage.style.transform = 'translateX(-50%) translateY(20px)';
-        }
-        
-        // Cover schließen
-        setTimeout(() => {
-            cover.classList.remove('open');
-            
-            // Transitions nach Animation zurücksetzen
-            setTimeout(() => {
-                if (stamp) stamp.style.transition = '';
-                if (leftPage) leftPage.style.transition = '';
-                if (rightPage) rightPage.style.transition = '';
-            }, 400);
-        }, 200);
-    }
-    
-    function handleDesktopPassportClick(cover) {
-        const isOpen = cover.classList.contains('open');
-        const container = cover.closest('.passport-container');
-        const stamp = container.querySelector('.passport-stamp');
-        const leftPage = container.querySelector('.passport-inside-left');
-        const rightPage = container.querySelector('.passport-inside-right');
-        const spine = container.querySelector('.page-spine');
-        
-        if (!isOpen) {
-            // Öffnen
-            cover.classList.add('open');
-            
-            // Innenseiten anzeigen
-            if (leftPage) {
-                leftPage.style.opacity = '1';
-                leftPage.style.transform = 'translateX(0)';
-            }
-            
-            if (rightPage) {
-                rightPage.style.opacity = '1';
-                rightPage.style.transform = 'translateX(0)';
-            }
-            
-            if (spine) {
-                spine.style.opacity = '1';
-            }
-            
-            // Stempel nach Verzögerung anzeigen
-            setTimeout(() => {
-                if (stamp) {
-                    stamp.style.opacity = '1';
-                    stamp.style.transform = 'translate(-50%, -50%) scale(1)';
-                }
-            }, 1500);
-            
-            // Auto-close nach 5 Sekunden
-            setTimeout(() => {
-                if (cover.classList.contains('open')) {
-                    cover.classList.remove('open');
-                    
-                    // Alles zurücksetzen
-                    if (stamp) {
-                        stamp.style.opacity = '0';
-                        stamp.style.transform = 'translate(-50%, -50%) scale(0)';
-                    }
-                    
-                    if (leftPage) {
-                        leftPage.style.opacity = '0';
-                        leftPage.style.transform = 'translateX(-20px)';
-                    }
-                    
-                    if (rightPage) {
-                        rightPage.style.opacity = '0';
-                        rightPage.style.transform = 'translateX(20px)';
-                    }
-                    
-                    if (spine) {
-                        spine.style.opacity = '0';
-                    }
-                }
-            }, 5000);
-        } else {
-            // Schließen
-            cover.classList.remove('open');
-            
-            // Alles verstecken
-            if (stamp) {
-                stamp.style.opacity = '0';
-                stamp.style.transform = 'translate(-50%, -50%) scale(0)';
-            }
-            
-            if (leftPage) {
-                leftPage.style.opacity = '0';
-                leftPage.style.transform = 'translateX(-20px)';
-            }
-            
-            if (rightPage) {
-                rightPage.style.opacity = '0';
-                rightPage.style.transform = 'translateX(20px)';
-            }
-            
-            if (spine) {
-                spine.style.opacity = '0';
-            }
-        }
-    }
-    
-    // Auto-animate passports on scroll (Desktop only)
-    if (window.innerWidth > 768) {
-        let lastAnimatedSpacer = null;
-        
-        const passportObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && entry.intersectionRatio > 0.7) {
-                    const spacer = entry.target;
-                    
-                    if (spacer !== lastAnimatedSpacer) {
-                        lastAnimatedSpacer = spacer;
-                        
-                        const passport = spacer.querySelector('.passport-cover');
-                        if (passport && !passport.classList.contains('open')) {
-                            // Close any other open passports
-                            document.querySelectorAll('.passport-cover.open').forEach(p => {
-                                p.classList.remove('open');
-                                const pContainer = p.closest('.passport-container');
-                                const pStamp = pContainer?.querySelector('.passport-stamp');
-                                const pLeft = pContainer?.querySelector('.passport-inside-left');
-                                const pRight = pContainer?.querySelector('.passport-inside-right');
-                                const pSpine = pContainer?.querySelector('.page-spine');
-                                
-                                if (pStamp) {
-                                    pStamp.style.opacity = '0';
-                                    pStamp.style.transform = 'translate(-50%, -50%) scale(0)';
-                                }
-                                if (pLeft) pLeft.style.opacity = '0';
-                                if (pRight) pRight.style.opacity = '0';
-                                if (pSpine) pSpine.style.opacity = '0';
-                            });
-                            
-                            // Open this passport
-                            setTimeout(() => {
-                                passport.classList.add('open');
-                            }, 500);
-                            
-                            // Auto-close after 5 seconds
-                            setTimeout(() => {
-                                if (passport.classList.contains('open')) {
-                                    passport.classList.remove('open');
-                                    const container = passport.closest('.passport-container');
-                                    const stamp = container?.querySelector('.passport-stamp');
-                                    const leftPage = container?.querySelector('.passport-inside-left');
-                                    const rightPage = container?.querySelector('.passport-inside-right');
-                                    const spine = container?.querySelector('.page-spine');
-                                    
-                                    if (stamp) {
-                                        stamp.style.opacity = '0';
-                                        stamp.style.transform = 'translate(-50%, -50%) scale(0)';
-                                    }
-                                    if (leftPage) leftPage.style.opacity = '0';
-                                    if (rightPage) rightPage.style.opacity = '0';
-                                    if (spine) spine.style.opacity = '0';
-                                }
-                            }, 5500);
-                        }
-                    }
-                }
-            });
-        }, {
-            threshold: 0.7,
-            rootMargin: '0px 0px -100px 0px'
-        });
-        
-        // Initialize after travel data loads
-        setTimeout(() => {
-            document.querySelectorAll('.travel-spacer').forEach(spacer => {
-                passportObserver.observe(spacer);
-            });
-        }, 1000);
-    }
-    
-    // Initialize passport animations
+    // Auto-animate passports on scroll (all viewports, stays open)
     setupPassportAnimations();
     
     // Re-initialize after travel data loads
@@ -331,26 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         
-        // Close passports when clicking outside (nur auf Desktop)
-        if (window.innerWidth > 768 && !e.target.closest('.passport-container')) {
-            document.querySelectorAll('.passport-cover.open').forEach(cover => {
-                const container = cover.closest('.passport-container');
-                const stamp = container.querySelector('.passport-stamp');
-                const leftPage = container.querySelector('.passport-inside-left');
-                const rightPage = container.querySelector('.passport-inside-right');
-                const spine = container.querySelector('.page-spine');
-                
-                cover.classList.remove('open');
-                
-                if (stamp) {
-                    stamp.style.opacity = '0';
-                    stamp.style.transform = 'translate(-50%, -50%) scale(0)';
-                }
-                if (leftPage) leftPage.style.opacity = '0';
-                if (rightPage) rightPage.style.opacity = '0';
-                if (spine) spine.style.opacity = '0';
-            });
-        }
+        // No passport close on outside click
     });
     
     // Window resize handling
@@ -380,4 +125,105 @@ document.addEventListener('DOMContentLoaded', function() {
             navigator.vibrate(10);
         }
     }, { passive: true });
+
+    // Upload handling (Supabase signed URL)
+    const uploadForm = document.getElementById('uploadForm');
+    const uploadFile = document.getElementById('uploadFile');
+    const uploadStatus = document.getElementById('uploadStatus');
+    const maxSizeBytes = 50 * 1024 * 1024;
+
+    if (uploadForm && uploadFile && uploadStatus) {
+        uploadForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            uploadStatus.textContent = '';
+
+            const file = uploadFile.files && uploadFile.files[0];
+            if (!file) {
+                uploadStatus.textContent = 'Bitte ein Bild auswählen.';
+                return;
+            }
+            if (!['image/jpeg', 'image/png'].includes(file.type)) {
+                uploadStatus.textContent = 'Nur JPG oder PNG erlaubt.';
+                return;
+            }
+            if (file.size > maxSizeBytes) {
+                uploadStatus.textContent = 'Datei ist zu groß (max. 50MB).';
+                return;
+            }
+
+            uploadStatus.textContent = 'Upload läuft...';
+
+            try {
+                const supabaseUrl = 'https://bwjqdbwslrspnjbjflrb.supabase.co';
+                const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ3anFkYndzbHJzcG5qYmpmbHJiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgzMjg5MTYsImV4cCI6MjA4MzkwNDkxNn0.YNXBoQTwDJeEbi4yWHovxHJ40Jv-9KJs0U5HGN74YAs';
+                const functionUrl = `${supabaseUrl}/functions/v1/upload`;
+
+                const meta = {
+                    timestamp: new Date().toISOString(),
+                    userAgent: navigator.userAgent,
+                    platform: navigator.platform || 'unknown',
+                    language: navigator.language || 'unknown',
+                    screen: {
+                        width: window.screen.width,
+                        height: window.screen.height
+                    }
+                };
+
+                const signRes = await fetch(functionUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${supabaseAnonKey}`,
+                        'apikey': supabaseAnonKey
+                    },
+                    body: JSON.stringify({
+                        action: 'sign',
+                        filename: file.name,
+                        contentType: file.type
+                    })
+                });
+
+                if (!signRes.ok) {
+                    throw new Error('Signierung fehlgeschlagen.');
+                }
+
+                const { signedUrl, objectPath } = await signRes.json();
+
+                const uploadRes = await fetch(signedUrl, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': file.type
+                    },
+                    body: file
+                });
+
+                if (!uploadRes.ok) {
+                    throw new Error('Upload fehlgeschlagen.');
+                }
+
+                const commitRes = await fetch(functionUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${supabaseAnonKey}`,
+                        'apikey': supabaseAnonKey
+                    },
+                    body: JSON.stringify({
+                        action: 'commit',
+                        objectPath,
+                        meta
+                    })
+                });
+
+                if (!commitRes.ok) {
+                    throw new Error('Metadaten konnten nicht gespeichert werden.');
+                }
+
+                uploadStatus.textContent = 'Upload erfolgreich.';
+                uploadForm.reset();
+            } catch (err) {
+                uploadStatus.textContent = 'Fehler beim Upload. Bitte später erneut versuchen.';
+            }
+        });
+    }
 });
