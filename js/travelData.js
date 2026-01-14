@@ -6,7 +6,7 @@ const travelData = [
         images: ["Madeira_01.JPG", "Madeira_06.JPG", "Madeira_03.jpeg", "Madeira_04.jpeg", "Madeira_04.JPG", "Madeira_05.JPG"],
         stampSymbol: "🌺",
         stampDates: ["AUGUST 2024"],
-        distance: "550 km"
+        
     },
     {
         country: "italien",
@@ -15,7 +15,7 @@ const travelData = [
         images: ["Italy_02.jpeg", "Italy_03.jpeg", "Italy_04.jpeg", "Italy_07.jpeg", "Italy_08.jpeg", "Italy_12.jpeg"],
         stampSymbol: "🍕",
         stampDates: ["AUGUST 2020", "JUNI 2023", "MAI 2024", "MAI 2025", "JULI 2025"],
-        distance: "950 km"
+      
     },
     {
         country: "kroatien",
@@ -24,7 +24,7 @@ const travelData = [
         images: ["Kroatien_01.jpeg", "Kroatien_02.jpeg", "Kroatien_09.jpeg", "Kroatien_05.jpeg", "Kroatien_07.jpeg", "Kroatien_11.jpeg"],
         stampSymbol: "🏖️",
         stampDates: ["AUGUST 2020", "AUGUST 2021", "AUGUST 2022", "AUGUST 2023", "MAI 2024"],
-        distance: "800 km"
+        
     },
     {
         country: "frankreich",
@@ -33,7 +33,7 @@ const travelData = [
         images: ["France_05.jpeg", "France_08.jpeg", "France_09.jpeg", "France_04.jpeg", "France_03.jpeg", "France_02.jpeg"],
         stampSymbol: "🗼",
         stampDates: ["SEPTEMBER 2022", "JANUAR 2023", "AUGUST 2025"],
-        distance: "600 km"
+       
     },
     {
         country: "usa",
@@ -42,7 +42,7 @@ const travelData = [
         images: ["USA_02.jpeg", "USA_05.jpeg", "USA_06.jpeg", "USA_11.jpeg", "USA_12.jpeg", "USA_07.jpeg"],
         stampSymbol: "🗽",
         stampDates: ["AUGUST 2016", "SEPTEMBER 2023"],
-        distance: "7.500 km",
+     
         passportSubtitle: "UNITED STATES"
     },
     {
@@ -52,7 +52,7 @@ const travelData = [
         images: ["Canada_04.jpeg", "Canada_02.jpeg", "Canada_03.jpeg", "Flugzeug_01.jpeg", "Canada_05.jpeg", "Canada_01.jpeg"],
         stampSymbol: "🍁",
         stampDates: ["SEPTEMBER 2023"],
-        distance: "6.500 km",
+       
         passportSubtitle: "CANADA"
     },
     {
@@ -62,7 +62,7 @@ const travelData = [
         images: ["China_11.jpeg", "China_13.jpeg", "China_14.jpeg", "China_01.jpeg", "China_06.jpeg", "China_03.jpeg"],
         stampSymbol: "🐉",
         stampDates: ["OKTOBER 2024"],
-        distance: "7.800 km",
+        
         passportSubtitle: "PEOPLE'S REPUBLIC"
     }
 ];
@@ -90,7 +90,6 @@ function renderCountry(country) {
         images,
         stampSymbol,
         stampDates,
-        distance,
         passportSubtitle
     } = country;
 
