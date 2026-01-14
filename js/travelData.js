@@ -71,29 +71,48 @@ function generateTravelSection() {
     const container = document.getElementById('travelSequence');
     if (!container) return;
     
-    let html = '';
+    const html = travelData.map(renderCountry).join('');
+    container.innerHTML = html;
     
-    travelData.forEach(country => {
-        // Country Card
-        html += `
+    // Trigger re-initialization of passport animations after DOM injection.
+    if (typeof setupPassportAnimations === 'function') {
+        setTimeout(setupPassportAnimations, 50);
+    }
+}
+
+const renderList = (items, renderItem) => items.map(renderItem).join('');
+
+function renderCountry(country) {
+    const {
+        country: slug,
+        title,
+        description,
+        images,
+        stampSymbol,
+        stampDates,
+        distance,
+        passportSubtitle
+    } = country;
+
+    return `
             <div class="travel-item">
-                <div class="country-card" data-country="${country.country}" data-distance="${country.distance}">
+                <div class="country-card" data-country="${slug}" data-distance="${distance}">
                     <div class="country-header">
-                        <h3>${country.title}</h3>
-                        ${country.distance ? `<div class="country-distance">${country.distance} von Deutschland</div>` : ''}
-                        <p class="country-description">${country.description}</p>
+                        <h3>${title}</h3>
+                        ${distance ? `<div class="country-distance">${distance} von Deutschland</div>` : ''}
+                        <p class="country-description">${description}</p>
                     </div>
                     <div class="country-gallery">
-                        ${country.images.map(img => `<img src="images/${img}" alt="${country.title}">`).join('')}
+                        ${renderList(images, img => `<img loading="lazy" decoding="async" src="images/${img}" alt="${title}">`)}
                     </div>
                 </div>
             </div>
             
-            <div class="travel-spacer" data-country="${country.country}">
+            <div class="travel-spacer" data-country="${slug}">
                 <div class="passport-container">
                     <div class="passport-cover">
                         <div class="cover-title">PASSPORT</div>
-                        <div class="cover-subtitle">${country.passportSubtitle || 'EUROPEAN UNION'}</div>
+                        <div class="cover-subtitle">${passportSubtitle || 'EUROPEAN UNION'}</div>
                     </div>
                     
                     <div class="passport-main-inside">
@@ -132,9 +151,9 @@ function generateTravelSection() {
                         
                         <div class="passport-stamp">
                             <div class="stamp-inner">
-                                <div class="stamp-country">${country.title.toUpperCase()}</div>
-                                <div class="stamp-symbol">${country.stampSymbol}</div>
-                                ${country.stampDates.map(date => `<div class="stamp-date">${date}</div>`).join('')}
+                                <div class="stamp-country">${title.toUpperCase()}</div>
+                                <div class="stamp-symbol">${stampSymbol}</div>
+                                ${renderList(stampDates, date => `<div class="stamp-date">${date}</div>`)}
                             </div>
                         </div>
                     </div>
@@ -143,14 +162,6 @@ function generateTravelSection() {
                 </div>
             </div>
         `;
-    });
-    
-    container.innerHTML = html;
-    
-    // Trigger re-initialization of passport animations
-    if (typeof setupPassportAnimations === 'function') {
-        setTimeout(setupPassportAnimations, 50);
-    }
 }
 
 // Generate travel section when DOM is ready

@@ -1,0 +1,51 @@
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .pet-grid,
+  .car-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .passport-container {
+    width: 600px;
+    height: 300px;
+    transform: scale(0.8);
+    transform-origin: center;
+  }
+
+  .passport-cover,
+  .passport-inside-left,
+  .passport-inside-right {
+    width: 300px;
+    height: 300px;
+  }
+
+  .passport-cover,
+  .passport-inside-left {
+    left: 150px;
+  }
+
+  .passport-inside-right {
+    left: 450px;
+  }
+
+  .passport-stamp {
+    left: 600px;
+  }
+
+  .page-spine {
+    left: 450px;
+    height: 250px;
+  }
+
+  .stamp-inner {
+    width: 150px;
+    height: 300px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 769px) {
+  .mobile-menu-toggle {
+    display: none;
+  }
+}

@@ -35,24 +35,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelector('.nav-links');
     
     if (mobileMenuToggle) {
+        const setMenuState = (isOpen) => {
+            if (!navLinks) return;
+            navLinks.classList.toggle('is-open', isOpen);
+            mobileMenuToggle.setAttribute('aria-expanded', String(isOpen));
+        };
+
         mobileMenuToggle.addEventListener('click', function() {
-            const isVisible = navLinks.style.display === 'flex';
-            navLinks.style.display = isVisible ? 'none' : 'flex';
-            
-            if (!isVisible) {
-                navLinks.style.position = 'absolute';
-                navLinks.style.top = '100%';
-                navLinks.style.left = '0';
-                navLinks.style.right = '0';
-                navLinks.style.background = 'rgba(255, 255, 255, 0.98)';
-                navLinks.style.backdropFilter = 'blur(20px)';
-                navLinks.style.flexDirection = 'column';
-                navLinks.style.padding = '25px';
-                navLinks.style.gap = '20px';
-                navLinks.style.borderTop = '1px solid var(--light-border)';
-                navLinks.style.boxShadow = '0 15px 40px rgba(0, 0, 0, 0.1)';
-                navLinks.style.zIndex = '1001';
-            }
+            if (!navLinks) return;
+            setMenuState(!navLinks.classList.contains('is-open'));
         });
     }
     
@@ -74,8 +65,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
                 
                 // Close mobile menu
-                if (window.innerWidth <= 768 && navLinks) {
-                    navLinks.style.display = 'none';
+                if (window.innerWidth <= 768 && navLinks && mobileMenuToggle) {
+                    navLinks.classList.remove('is-open');
+                    mobileMenuToggle.setAttribute('aria-expanded', 'false');
                 }
             }
         });
@@ -89,9 +81,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Close menu when clicking outside
     document.addEventListener('click', function(e) {
-        if (window.innerWidth <= 768 && navLinks) {
-            if (!e.target.closest('.nav-container') && navLinks.style.display === 'flex') {
-                navLinks.style.display = 'none';
+        if (window.innerWidth <= 768 && navLinks && mobileMenuToggle) {
+            if (!e.target.closest('.nav-container') && navLinks.classList.contains('is-open')) {
+                navLinks.classList.remove('is-open');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
             }
         }
         
@@ -103,15 +96,9 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', function() {
         clearTimeout(resizeTimeout);
         resizeTimeout = setTimeout(() => {
-            if (window.innerWidth > 768 && navLinks) {
-                navLinks.style.display = 'flex';
-                navLinks.style.position = 'static';
-                navLinks.style.flexDirection = 'row';
-                navLinks.style.padding = '0';
-                navLinks.style.background = 'transparent';
-                navLinks.style.boxShadow = 'none';
-                navLinks.style.backdropFilter = 'none';
-                navLinks.style.borderTop = 'none';
+            if (window.innerWidth > 768 && navLinks && mobileMenuToggle) {
+                navLinks.classList.remove('is-open');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
             }
             
             // Re-initialize passport animations on resize

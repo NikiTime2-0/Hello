@@ -4,8 +4,11 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+    <meta name="description" content="Persönliches Portfolio mit Reisen, Auto, Musik und Haustier.">
     <title>Niklas – Portfolio</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.base.css">
+    <link rel="stylesheet" href="css/style.web.css" media="(min-width: 769px)">
+    <link rel="stylesheet" href="css/style.mobile.css" media="(max-width: 768px)">
 </head>
 
 <body>
@@ -13,7 +16,7 @@
     <header>
         <div class="nav-container">
             <a href="#home" class="nav-brand">Niklas</a>
-            <div class="nav-links">
+            <div class="nav-links" id="navLinks">
                 <a href="#home">Home</a>
                 <a href="#haustier">Haustier</a>
                 <a href="#auto">Auto</a>
@@ -21,7 +24,7 @@
                 <a href="#reisen">Reisen</a>
                 <a href="#kontakt">Kontakt</a>
             </div>
-            <button class="mobile-menu-toggle">☰</button>
+            <button class="mobile-menu-toggle" aria-controls="navLinks" aria-expanded="false" aria-label="Navigation öffnen">☰</button>
         </div>
     </header>
 
@@ -41,34 +44,34 @@
             <p class="section-description">Emotional Support, Spirit Animal, Buddy</p>
             <div class="pet-grid">
                 <div class="polaroid-card">
-                    <img src="images/Balu_06.jpeg" alt="Katze Balu" class="polaroid-image">
+                    <img loading="lazy" decoding="async" src="images/Balu_06.jpeg" alt="Katze Balu" class="polaroid-image">
                     <div class="polaroid-caption">
                         <h3>Balu</h3>
                         <p>Das ist mein Kater.</p>
                     </div>
                 </div>
                 <div class="polaroid-card">
-                    <img src="images/Balu_04.jpeg" alt="Quality Time" class="polaroid-image">
+                    <img loading="lazy" decoding="async" src="images/Balu_04.jpeg" alt="Quality Time" class="polaroid-image">
                     <div class="polaroid-caption">
                         <h3>Quality Time</h3>
                         <p>No Words needed.</p>
                     </div>
                 </div>
                 <div class="polaroid-card">
-                    <img src="images/Balu_03.jpeg" alt="Homeoffice" class="polaroid-image">
+                    <img loading="lazy" decoding="async" src="images/Balu_03.jpeg" alt="Homeoffice" class="polaroid-image">
                     <div class="polaroid-caption">
                         <h3>Homeoffice</h3>
                         <p>Emotional Support wenns drauf ankommt.</p>
                     </div>
                 </div>
                 <div class="polaroid-card">
-                    <img src="images/Balu_01.jpeg" alt="Einfach Modell" class="polaroid-image">
+                    <img loading="lazy" decoding="async" src="images/Balu_01.jpeg" alt="Einfach Modell" class="polaroid-image">
                     <div class="polaroid-caption">
                         <h3>Einfach Modell</h3>
                     </div>
                 </div>
                 <div class="polaroid-card">
-                    <img src="images/Balu_05.jpeg" alt="Spirit Animal" class="polaroid-image">
+                    <img loading="lazy" decoding="async" src="images/Balu_05.jpeg" alt="Spirit Animal" class="polaroid-image">
                     <div class="polaroid-caption">
                         <h3>My Spirit Animal</h3>
                     </div>
@@ -83,15 +86,15 @@
             <h2 class="section-title">Welcome to Audi Airlines</h2>
             <p class="section-description">🤍🤍🤍🤍</p>
             <div class="car-grid">
-                <div class="car-card"><img src="images/Audi_13.jpeg" alt="Audi"></div>
-                <div class="car-card"><img src="images/Audi_12.jpeg" alt="Audi"></div>
-                <div class="car-card"><img src="images/Audi_16.jpeg" alt="Audi"></div>
-                <div class="car-card"><img src="images/Audi_22.jpeg" alt="Audi"></div>
-                <div class="car-card"><img src="images/Audi_05.jpeg" alt="Audi"></div>
-                <div class="car-card"><img src="images/Audi_04.jpeg" alt="Audi"></div>
-                <div class="car-card"><img src="images/Audi_03.jpeg" alt="Audi"></div>
-                <div class="car-card"><img src="images/Audi_02.jpeg" alt="Audi"></div>
-                <div class="car-card"><img src="images/Audi_01.jpeg" alt="Audi"></div>
+                <div class="car-card"><img loading="lazy" decoding="async" src="images/Audi_13.jpeg" alt="Audi"></div>
+                <div class="car-card"><img loading="lazy" decoding="async" src="images/Audi_12.jpeg" alt="Audi"></div>
+                <div class="car-card"><img loading="lazy" decoding="async" src="images/Audi_16.jpeg" alt="Audi"></div>
+                <div class="car-card"><img loading="lazy" decoding="async" src="images/Audi_22.jpeg" alt="Audi"></div>
+                <div class="car-card"><img loading="lazy" decoding="async" src="images/Audi_05.jpeg" alt="Audi"></div>
+                <div class="car-card"><img loading="lazy" decoding="async" src="images/Audi_04.jpeg" alt="Audi"></div>
+                <div class="car-card"><img loading="lazy" decoding="async" src="images/Audi_03.jpeg" alt="Audi"></div>
+                <div class="car-card"><img loading="lazy" decoding="async" src="images/Audi_02.jpeg" alt="Audi"></div>
+                <div class="car-card"><img loading="lazy" decoding="async" src="images/Audi_01.jpeg" alt="Audi"></div>
             </div>
         </div>
     </section>
@@ -104,7 +107,7 @@
                 <div class="playlist-card">
                     <h3>Scannen um gemeinsame Playlist zu erstellen</h3>
                     <div class="qr-code">
-                        <img src="images/spotify.png" alt="SpotifyQR">
+                        <img loading="lazy" decoding="async" src="images/spotify.png" alt="SpotifyQR">
                     </div>
                 </div>
             </div>
