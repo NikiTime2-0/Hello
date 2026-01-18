@@ -90,7 +90,8 @@ function renderCountry(country) {
         images,
         stampSymbol,
         stampDates,
-        passportSubtitle
+        passportSubtitle,
+        distance = ''
     } = country;
 
     return `
